@@ -4,6 +4,7 @@ using Zenject;
 public class GameInstaller : MonoInstaller
 {
     public GameObject ProjectilePrefab;
+    public GameObject Waypoint;
 
     public override void InstallBindings()
     {
@@ -11,5 +12,9 @@ public class GameInstaller : MonoInstaller
             .FromComponentInNewPrefab(ProjectilePrefab)
             .WithGameObjectName("Projectile")
             .UnderTransformGroup("Projectiles");
+
+        Container.BindInterfacesAndSelfTo<Waypoint>()
+            .FromComponentsOn(Waypoint)
+            .AsSingle();
     }
 }
