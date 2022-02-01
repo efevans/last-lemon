@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseAttackState
+public abstract class AttackState
 {
-    protected Tower Tower;
+    protected Tower _tower;
 
-    public BaseAttackState(Tower tower)
+    public AttackState(Tower tower)
     {
-        Tower = tower;
+        _tower = tower;
     }
 
     public virtual void Start() { }

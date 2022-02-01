@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
         UpdateTargetPosition();
         FaceTarget(LastKnownTargetLocation);
 
-        float step = 2f * Time.deltaTime;
+        float step = 1.3f * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, LastKnownTargetLocation, step);
 
         DestroyOnCloseEnoughToTarget();

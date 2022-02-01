@@ -10,6 +10,8 @@ public class Tower : MonoBehaviour
     [SerializeField]
     public EnemyDetection EnemyDetection;
 
+    private AttackState _attackState;
+
     [Inject]
     public void Construct(Projectile.Factory factory)
     {
@@ -19,15 +21,18 @@ public class Tower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetAttackState(new WaitingToAttackState(this));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (EnemyDetection.TargetedEnemy != null)
-        {
-            ProjectileFactory.Create(transform.position, EnemyDetection.TargetedEnemy);
-        }
+        _attackState.OnUpdate();
+    }
+
+    public void SetAttackState(AttackState attackState)
+    {
+        _attackState = attackState;
+        _attackState.Start();
     }
 }
