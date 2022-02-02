@@ -4,6 +4,7 @@ using Zenject;
 public class GameInstaller : MonoInstaller
 {
     public GameObject ProjectilePrefab;
+    public GameObject TowerPrefab;
     public GameObject Waypoint;
 
     public override void InstallBindings()
@@ -12,6 +13,11 @@ public class GameInstaller : MonoInstaller
             .FromComponentInNewPrefab(ProjectilePrefab)
             .WithGameObjectName("Projectile")
             .UnderTransformGroup("Projectiles");
+
+        Container.BindFactory<Vector2, Tower, Tower.Factory>()
+            .FromComponentInNewPrefab(TowerPrefab)
+            .WithGameObjectName("Tower")
+            .UnderTransformGroup("Towers");
 
         Container.BindInterfacesAndSelfTo<Waypoint>()
             .FromComponentsOn(Waypoint)

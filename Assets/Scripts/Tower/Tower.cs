@@ -13,8 +13,9 @@ public class Tower : MonoBehaviour
     private AttackState _attackState;
 
     [Inject]
-    public void Construct(Projectile.Factory factory)
+    public void Construct(Vector2 spawnLocation, Projectile.Factory factory)
     {
+        transform.position = spawnLocation;
         ProjectileFactory = factory;
     }
 
@@ -35,4 +36,6 @@ public class Tower : MonoBehaviour
         _attackState = attackState;
         _attackState.Start();
     }
+
+    public class Factory : PlaceholderFactory<Vector2, Tower> { }
 }
