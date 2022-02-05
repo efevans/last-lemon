@@ -13,8 +13,9 @@ public class Enemy : MonoBehaviour
     private float Speed = 1.5f;
 
     [Inject]
-    public void Construct(Waypoint waypoint)
+    public void Construct(Vector2 spawnLocation, Waypoint waypoint)
     {
+        transform.position = spawnLocation;
         Waypoint = waypoint;
     }
 
@@ -41,4 +42,6 @@ public class Enemy : MonoBehaviour
         WaypointIndex++;
         Target = Waypoint.Waypoints.ElementAt(WaypointIndex);
     }
+
+    public class Factory : PlaceholderFactory<Vector2, Enemy> { }
 }

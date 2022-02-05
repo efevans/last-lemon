@@ -5,6 +5,7 @@ public class GameInstaller : MonoInstaller
 {
     public GameObject ProjectilePrefab;
     public GameObject TowerPrefab;
+    public GameObject EnemyPrefab;
     public GameObject Waypoint;
 
     public override void InstallBindings()
@@ -18,6 +19,11 @@ public class GameInstaller : MonoInstaller
             .FromComponentInNewPrefab(TowerPrefab)
             .WithGameObjectName("Tower")
             .UnderTransformGroup("Towers");
+
+        Container.BindFactory<Vector2, Enemy, Enemy.Factory>()
+            .FromComponentInNewPrefab(EnemyPrefab)
+            .WithGameObjectName("Enemy")
+            .UnderTransformGroup("Enemies");
 
         Container.BindInterfacesAndSelfTo<Waypoint>()
             .FromComponentsOn(Waypoint)
