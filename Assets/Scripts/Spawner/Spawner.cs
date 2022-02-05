@@ -1,4 +1,5 @@
 using Assets.Scripts.Spawner.State;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,17 +9,23 @@ namespace Assets.Scripts.Spawner
 {
     public class Spawner : MonoBehaviour
     {
-        private SpawnState _state;
         public Enemy.Factory EnemyFactory;
+        public Settings SpawnerSettings;
+
+        private SpawnState _state;
+
+        public int RemainingSpawns;
 
         [Inject]
-        public void Construct(Enemy.Factory factory)
+        public void Construct(Enemy.Factory factory, Settings settings)
         {
             EnemyFactory = factory;
+            SpawnerSettings = settings;
         }
 
         private void Start()
         {
+            RemainingSpawns = SpawnerSettings.UnitCount;
             SetSpawnState(new SpawnIntervalState(this));
         }
 
@@ -31,6 +38,13 @@ namespace Assets.Scripts.Spawner
         {
             _state = state;
             _state.Start();
+        }
+
+        [Serializable]
+        public class Settings
+        {
+            [Range(0, 100)]
+            public int UnitCount;
         }
     }
 }

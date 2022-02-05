@@ -8,8 +8,12 @@ namespace Assets.Scripts.Spawner.State
 
         public override void OnUpdate()
         {
-            _spawner.EnemyFactory.Create(_spawner.transform.position);
-            _spawner.SetSpawnState(new SpawnIntervalState(_spawner));
+            if (_spawner.RemainingSpawns > 0)
+            {
+                _spawner.EnemyFactory.Create(_spawner.transform.position);
+                _spawner.SetSpawnState(new SpawnIntervalState(_spawner));
+                _spawner.RemainingSpawns--;
+            }
         }
     }
 }

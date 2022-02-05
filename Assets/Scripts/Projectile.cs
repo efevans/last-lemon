@@ -53,7 +53,6 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("enemy"))
         {
-            Debug.Log("triggering");
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
