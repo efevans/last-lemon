@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnerSettings:
     UnitCount: 10
+  GoldManagerSettings:
+    StartingGold: 5

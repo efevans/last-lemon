@@ -8,12 +8,15 @@ public class Projectile : MonoBehaviour
     private Transform Target { get; set; }
     private Vector2 LastKnownTargetLocation { get; set; }
 
+    private float Damage { get; set; }
+
     [Inject]
-    public void Construct(Vector2 spawnLocation, Transform target)
+    public void Construct(Vector2 spawnLocation, Transform target, float damage)
     {
         transform.position = spawnLocation;
         Target = target;
         LastKnownTargetLocation = Target.position;
+        Damage = damage;
     }
 
     // Start is called before the first frame update
@@ -53,7 +56,11 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("enemy"))
         {
-            Destroy(collision.gameObject);
+            if (collision.TryGetComponent<Enemy>(out Enemy enemy))
+            {
+                enemy.TakeDamage(Damage);
+            }
+            
             Destroy(this.gameObject);
         }
     }
@@ -71,5 +78,5 @@ public class Projectile : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
-    public class Factory : PlaceholderFactory<Vector2, Transform, Projectile> { }
+    public class Factory : PlaceholderFactory<Vector2, Transform, float, Projectile> { }
 }

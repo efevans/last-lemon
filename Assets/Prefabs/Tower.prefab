@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyDetection: {fileID: 6832582989658414653}
+  Damage: 4
 --- !u!114 &6832582989658414653
 MonoBehaviour:
   m_ObjectHideFlags: 0

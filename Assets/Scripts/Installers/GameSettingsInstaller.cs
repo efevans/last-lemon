@@ -6,9 +6,11 @@ using Zenject;
 public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInstaller>
 {
     public Spawner.Settings SpawnerSettings;
+    public GoldManager.Settings GoldManagerSettings;
 
     public override void InstallBindings()
     {
         Container.BindInstance(SpawnerSettings);
+        Container.BindInstance(GoldManagerSettings);
     }
 }

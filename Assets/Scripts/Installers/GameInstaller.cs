@@ -8,9 +8,11 @@ public class GameInstaller : MonoInstaller
     public GameObject EnemyPrefab;
     public GameObject Waypoint;
 
+    public GoldManager GoldManager;
+
     public override void InstallBindings()
     {
-        Container.BindFactory<Vector2, Transform, Projectile, Projectile.Factory>()
+        Container.BindFactory<Vector2, Transform, float, Projectile, Projectile.Factory>()
             .FromComponentInNewPrefab(ProjectilePrefab)
             .WithGameObjectName("Projectile")
             .UnderTransformGroup("Projectiles");
@@ -28,5 +30,19 @@ public class GameInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<Waypoint>()
             .FromComponentsOn(Waypoint)
             .AsSingle();
+
+        Container.BindInterfacesAndSelfTo<GoldManager>()
+            .FromInstance(GoldManager)
+            .AsSingle();
+
+        InstallSignals();
+    }
+
+    private void InstallSignals()
+    {
+        SignalBusInstaller.Install(Container);
+
+        Container.DeclareSignalWithInterfaces<ISignalGoldManager>();
+        Container.DeclareSignal<SignalEnemyDeath>().OptionalSubscriber();
     }
 }

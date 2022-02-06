@@ -12,7 +12,10 @@ public class WaitingToAttackState : AttackState
     {
         if (_tower.EnemyDetection.TargetedEnemy != null)
         {
-            _tower.ProjectileFactory.Create(_tower.transform.position, _tower.EnemyDetection.TargetedEnemy);
+            _tower.ProjectileFactory.Create(
+                _tower.transform.position,
+                _tower.EnemyDetection.TargetedEnemy,
+                _tower.Damage);
             _tower.SetAttackState(new CooldownState(_tower));
         }
     }

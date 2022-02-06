@@ -9,8 +9,11 @@ public class Tower : MonoBehaviour
 
     [SerializeField]
     public EnemyDetection EnemyDetection;
+    [SerializeField]
+    public float Damage;
 
     private AttackState _attackState;
+
 
     [Inject]
     public void Construct(Vector2 spawnLocation, Projectile.Factory factory)
