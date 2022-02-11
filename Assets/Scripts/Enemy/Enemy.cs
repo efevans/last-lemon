@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     private Transform _target;
     private int _waypointIndex;
 
-    private float _speed = 1.5f;
+    private float _speed = 3f;
     private float _health = 10;
 
     [SerializeField]
