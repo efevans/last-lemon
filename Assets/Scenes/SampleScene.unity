@@ -2473,9 +2473,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectilePrefab: {fileID: 2163857103972394245, guid: ee631b5925872344dabb4736dd38d7ba, type: 3}
-  TowerPrefab: {fileID: 6832582989658414649, guid: 006944048b6dcb4419531c172a66a37a, type: 3}
+  BuildingPrefab: {fileID: 6832582989658414649, guid: 006944048b6dcb4419531c172a66a37a, type: 3}
   EnemyPrefab: {fileID: 2414433903550089563, guid: c1f75863eee5f7f4e9b3d848ccd89a83, type: 3}
   Waypoint: {fileID: 764939856}
+  TowerDatabase: {fileID: 11400000, guid: 625afc0b819df024084b7b2114bd9a95, type: 2}
   GoldManager: {fileID: 1046973407}
 --- !u!114 &1769014857
 MonoBehaviour:

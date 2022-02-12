@@ -1,3 +1,4 @@
+using Assets.Scripts.Building;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,13 +6,15 @@ using Zenject;
 
 public class BuildableSpot : MonoBehaviour
 {
-    private Tower.Factory _towerFactory;
+    private TowerDatabase _towerDatabase;
+    private Building.Factory _buildingFactory;
     private GoldManager _goldManager;
 
     [Inject]
-    public void Construct(Tower.Factory towerFactory, GoldManager goldManager)
+    public void Construct(TowerDatabase towerDatabase, Building.Factory towerFactory, GoldManager goldManager)
     {
-        _towerFactory = towerFactory;
+        _towerDatabase = towerDatabase;
+        _buildingFactory = towerFactory;
         _goldManager = goldManager;
     }
 
@@ -19,7 +22,7 @@ public class BuildableSpot : MonoBehaviour
     {
         if (_goldManager.Gold >= 3)
         {
-            _towerFactory.Create(transform.position);
+            _buildingFactory.Create(_towerDatabase.GetTower("Arrow"), transform.position);
             _goldManager.SpendGold(3);
             Destroy(gameObject);
         }

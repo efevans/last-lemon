@@ -1,24 +1,30 @@
+using Assets.Scripts.Building;
 using UnityEngine;
 using Zenject;
 
 public class GameInstaller : MonoInstaller
 {
     public GameObject ProjectilePrefab;
-    public GameObject TowerPrefab;
+    public GameObject BuildingPrefab;
     public GameObject EnemyPrefab;
     public GameObject Waypoint;
+
+    public TowerDatabase TowerDatabase;
 
     public GoldManager GoldManager;
 
     public override void InstallBindings()
     {
+        Container.BindInterfacesAndSelfTo<TowerDatabase>()
+            .FromInstance(TowerDatabase);
+
         Container.BindFactory<Vector2, Transform, float, Projectile, Projectile.Factory>()
             .FromComponentInNewPrefab(ProjectilePrefab)
             .WithGameObjectName("Projectile")
             .UnderTransformGroup("Projectiles");
 
-        Container.BindFactory<Vector2, Tower, Tower.Factory>()
-            .FromComponentInNewPrefab(TowerPrefab)
+        Container.BindFactory<Tower, Vector2, Building, Building.Factory>()
+            .FromComponentInNewPrefab(BuildingPrefab)
             .WithGameObjectName("Tower")
             .UnderTransformGroup("Towers");
 

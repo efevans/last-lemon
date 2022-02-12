@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 843d0d072b84f174b9f14d57b841fbb3, type: 3}
-  m_Name: GameSettingsInstaller
+  m_Script: {fileID: 11500000, guid: 291adbd9c461f704e851e99f50f94f86, type: 3}
+  m_Name: Tower Database
   m_EditorClassIdentifier: 
-  SpawnerSettings:
-    UnitCount: 10
-  GoldManagerSettings:
-    StartingGold: 12
+  Towers:
+  - {fileID: 11400000, guid: 7f0d004aef34a9844852c77567e79105, type: 2}

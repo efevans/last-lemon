@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 843d0d072b84f174b9f14d57b841fbb3, type: 3}
-  m_Name: GameSettingsInstaller
+  m_Script: {fileID: 11500000, guid: d07d15874a3dcf1489460b85303ad9e8, type: 3}
+  m_Name: Arrow Controller
   m_EditorClassIdentifier: 
-  SpawnerSettings:
-    UnitCount: 10
-  GoldManagerSettings:
-    StartingGold: 12
+  Settings: {fileID: 11400000, guid: 18ff1f9ab124e6745807b3a788582eae, type: 2}

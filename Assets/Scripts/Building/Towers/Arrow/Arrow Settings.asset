@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 843d0d072b84f174b9f14d57b841fbb3, type: 3}
-  m_Name: GameSettingsInstaller
+  m_Script: {fileID: 11500000, guid: e45c0ebb7e247af48abed30c8f9a1cdc, type: 3}
+  m_Name: Arrow Settings
   m_EditorClassIdentifier: 
-  SpawnerSettings:
-    UnitCount: 10
-  GoldManagerSettings:
-    StartingGold: 12
+  Cooldown: 1.2
+  Damage: 0
+  ProjectileSpeed: 4.5
