@@ -12,11 +12,11 @@ namespace Assets.Scripts.Building.Towers.Axe.State
 
         public override void Update(Building building)
         {
-            if (building.EnemyDetection.TargetedEnemy != null)
+            foreach (var enemy in building.EnemyDetection.EnemiesInRange)
             {
                 building.ProjectileFactory.Create(
                     building.transform.position,
-                    building.EnemyDetection.TargetedEnemy,
+                    enemy,
                     _controller.Settings.Sprite,
                     _controller.Settings.Damage,
                     _controller.Settings.ProjectileSpeed);

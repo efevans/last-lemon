@@ -9,6 +9,7 @@ public class EnemyDetection : MonoBehaviour
 
     [SerializeField]
     public Transform TargetedEnemy { get; private set; }
+    public List<Transform> EnemiesInRange { get; set; } = new List<Transform>();
 
     [SerializeField]
     public bool EnemyDetected { get; private set; }
@@ -30,6 +31,7 @@ public class EnemyDetection : MonoBehaviour
         List<Collider2D> inRangeTargets = new List<Collider2D>();
         Physics2D.OverlapCircle(transform.position, Radius, filter, inRangeTargets);
 
+        EnemiesInRange = inRangeTargets.Select(t => t.transform).ToList();
         if (inRangeTargets.Count > 0)
         {
             TargetedEnemy = inRangeTargets.First().transform;
