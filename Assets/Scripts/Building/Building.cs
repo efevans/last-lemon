@@ -29,13 +29,18 @@ namespace Assets.Scripts.Building
         // Start is called before the first frame update
         void Start()
         {
-            _tower.TowerController.DoStart(this);
+            _tower.TowerController.Setup(this);
         }
 
         // Update is called once per frame
         void Update()
         {
             _tower.TowerController.DoUpdate(this);
+        }
+
+        public void SetRange(float range)
+        {
+            EnemyDetection.Radius = range;
         }
 
         public class Factory : PlaceholderFactory<Tower, Vector2, Building> { }

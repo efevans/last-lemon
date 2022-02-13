@@ -9,9 +9,10 @@ namespace Assets.Scripts.Building.Towers.Axe
     {
         public AxeSettings Settings;
 
-        public override void DoStart(Building building)
+        public override void Setup(Building building)
         {
             building.TowerStateController = new AxeStateController(Settings, building);
+            //building.SetRange(Settings)
         }
 
         public override void DoUpdate(Building building)

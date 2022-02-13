@@ -118,7 +118,7 @@ MonoBehaviour:
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 64
-  Radius: 5
+  Radius: 2.9
   GizmoIdleColor: {r: 0, g: 1, b: 0, a: 0.45490196}
   GizmoDetectedColor: {r: 1, g: 0, b: 0, a: 0.50980395}
   ShowGizmos: 1

@@ -10,7 +10,7 @@ namespace Assets.Scripts.Building.Towers.Arrow
     {
         public ArrowSettings Settings;
 
-        public override void DoStart(Building building)
+        public override void Setup(Building building)
         {
             building.TowerStateController = new ArrowStateController(Settings, building);
         }

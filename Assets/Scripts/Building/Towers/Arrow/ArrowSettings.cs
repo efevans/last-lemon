@@ -9,6 +9,7 @@ namespace Assets.Scripts.Building.Towers.Arrow
     {
         public float Cooldown;
         public float Damage;
+        public float Range;
         public float ProjectileSpeed;
         public Sprite Sprite;
     }
