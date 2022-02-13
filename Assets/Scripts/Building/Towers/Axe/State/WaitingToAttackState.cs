@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts.Building.Towers.Arrow.State
+namespace Assets.Scripts.Building.Towers.Axe.State
 {
-    public class WaitingToAttackState : ArrowControlState
+    public class WaitingToAttackState : AxeState
     {
-        public WaitingToAttackState(ArrowStateController controller) : base(controller)
+        public WaitingToAttackState(AxeStateController controller) : base(controller)
         {
         }
 

@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e45c0ebb7e247af48abed30c8f9a1cdc, type: 3}
-  m_Name: Arrow Settings
+  m_Script: {fileID: 11500000, guid: 5a355f96b00ad6a4aa2a8d907579e4a2, type: 3}
+  m_Name: Axe Controller
   m_EditorClassIdentifier: 
-  Cooldown: 1.2
-  Damage: 0
-  ProjectileSpeed: 4.5
-  Sprite: {fileID: 21300000, guid: 19aa2c2d2a52d244d9d40c3707765546, type: 3}
+  Settings: {fileID: 11400000, guid: df00f344251c0e3499408d56f2c87b13, type: 2}

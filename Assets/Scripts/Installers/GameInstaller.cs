@@ -18,7 +18,7 @@ public class GameInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<TowerDatabase>()
             .FromInstance(TowerDatabase);
 
-        Container.BindFactory<Vector2, Transform, float, Projectile, Projectile.Factory>()
+        Container.BindFactory<Vector2, Transform, Sprite, float, float, Projectile, Projectile.Factory>()
             .FromComponentInNewPrefab(ProjectilePrefab)
             .WithGameObjectName("Projectile")
             .UnderTransformGroup("Projectiles");

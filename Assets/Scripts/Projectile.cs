@@ -5,24 +5,31 @@ using Zenject;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField]
+    private SpriteRenderer _spriteRenderer;
     private Transform Target { get; set; }
     private Vector2 LastKnownTargetLocation { get; set; }
 
     private float Damage { get; set; }
+    private float Speed { get; set; }
+    private Sprite Sprite { get; set; }
 
     [Inject]
-    public void Construct(Vector2 spawnLocation, Transform target, float damage)
+    public void Construct(Vector2 spawnLocation, Transform target, Sprite sprite, float damage, float speed)
     {
         transform.position = spawnLocation;
         Target = target;
         LastKnownTargetLocation = Target.position;
         Damage = damage;
+        Speed = speed;
+        Sprite = sprite;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         FaceTarget(LastKnownTargetLocation);
+        _spriteRenderer.sprite = Sprite;
     }
 
     private void Update()
@@ -30,7 +37,7 @@ public class Projectile : MonoBehaviour
         UpdateTargetPosition();
         FaceTarget(LastKnownTargetLocation);
 
-        float step = 5f * Time.deltaTime;
+        float step = Speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, LastKnownTargetLocation, step);
 
         DestroyOnCloseEnoughToTarget();
@@ -78,5 +85,5 @@ public class Projectile : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
-    public class Factory : PlaceholderFactory<Vector2, Transform, float, Projectile> { }
+    public class Factory : PlaceholderFactory<Vector2, Transform, Sprite, float, float, Projectile> { }
 }

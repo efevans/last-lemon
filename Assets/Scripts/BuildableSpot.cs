@@ -22,7 +22,7 @@ public class BuildableSpot : MonoBehaviour
     {
         if (_goldManager.Gold >= 3)
         {
-            _buildingFactory.Create(_towerDatabase.GetTower("Arrow"), transform.position);
+            _buildingFactory.Create(_towerDatabase.GetTower("Axe"), transform.position);
             _goldManager.SpendGold(3);
             Destroy(gameObject);
         }

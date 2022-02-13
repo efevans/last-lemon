@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts.Building.Towers.Arrow
+namespace Assets.Scripts.Building.Towers.Axe
 {
-    [CreateAssetMenu(fileName = "Arrow Settings", menuName = "Tower/Arrow/Settings")]
-    public class ArrowSettings : ScriptableObject
+    [CreateAssetMenu(fileName = "Axe Settings", menuName = "Tower/Axe/Settings")]
+    public class AxeSettings : ScriptableObject
     {
         public float Cooldown;
         public float Damage;
