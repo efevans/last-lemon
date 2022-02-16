@@ -9,13 +9,13 @@ public class TowerDatabase : ScriptableObject
 
     public Tower GetTower(string name)
     {
-        var character = Towers.Find(c => c.Name == name);
+        var tower = Towers.Find(c => c.Name == name);
 
-        if (character == null)
+        if (tower == null)
         {
             Debug.LogError($"Could not find tower {name}");
         }
 
-        return character;
+        return tower;
     }
 }

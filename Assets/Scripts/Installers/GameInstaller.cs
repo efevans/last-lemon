@@ -12,13 +12,29 @@ public class GameInstaller : MonoInstaller
     public GameObject Waypoint;
 
     public TowerDatabase TowerDatabase;
+    public UpgradeDatabase UpgradeDatabase;
 
     public GoldManager GoldManager;
 
+    public AddAxeTowerBehavior AddAxeTowerBehavior;
+
     public override void InstallBindings()
     {
+        Container.BindInterfacesAndSelfTo<TowersManager>()
+            .FromNew()
+            .AsSingle()
+            .NonLazy();
+
         Container.BindInterfacesAndSelfTo<TowerDatabase>()
             .FromInstance(TowerDatabase);
+
+        Container.BindInterfacesAndSelfTo<UpgradesManager>()
+            .FromNew()
+            .AsSingle()
+            .NonLazy();
+
+        Container.BindInterfacesAndSelfTo<UpgradeDatabase>()
+            .FromInstance(UpgradeDatabase);
 
         Container.BindFactory<Vector2, Transform, Sprite, float, float, Projectile, Projectile.Factory>()
             .FromComponentInNewPrefab(ProjectilePrefab)
@@ -45,6 +61,8 @@ public class GameInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<GoldManager>()
             .FromInstance(GoldManager)
             .AsSingle();
+
+        Container.QueueForInject(AddAxeTowerBehavior);
 
         InstallSignals();
     }

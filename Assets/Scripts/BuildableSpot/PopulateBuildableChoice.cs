@@ -7,7 +7,7 @@ using Zenject;
 
 public class PopulateBuildableChoice : MonoBehaviour, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    private TowerDatabase _towerDatabase;
+    private TowersManager _towersManager;
     private BuildableChoice.Factory _buildableChoiceFactory;
 
     private List<BuildableChoice> Choices = new List<BuildableChoice>();
@@ -17,9 +17,9 @@ public class PopulateBuildableChoice : MonoBehaviour, IDeselectHandler, IPointer
     private Action<Tower> _onSelectTower;
 
     [Inject]
-    public void Construct(TowerDatabase towerDatabase, BuildableChoice.Factory factory)
+    public void Construct(TowersManager towersManager, BuildableChoice.Factory factory)
     {
-        _towerDatabase = towerDatabase;
+        _towersManager = towersManager;
         _buildableChoiceFactory = factory;
     }
 
@@ -43,7 +43,7 @@ public class PopulateBuildableChoice : MonoBehaviour, IDeselectHandler, IPointer
     private void ExpandSelection()
     {
         ClearChoices();
-        foreach (var tower in _towerDatabase.Towers)
+        foreach (var tower in _towersManager.GetBuildableTowers())
         {
             var choice = _buildableChoiceFactory.Create(gameObject, tower, _onSelectTower);
             Choices.Add(choice);
