@@ -23,13 +23,6 @@ public class BuildableSpot : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //if (_goldManager.Gold >= 3)
-        //{
-        //    _buildingFactory.Create(_towerDatabase.GetTower("Axe"), transform.position);
-        //    _goldManager.SpendGold(3);
-        //    Destroy(gameObject);
-        //}
-
         ExpandSelection();
     }
 
@@ -40,10 +33,10 @@ public class BuildableSpot : MonoBehaviour
 
     private void OnSelectTower(Tower tower)
     {
-        if (_goldManager.Gold >= 3)
+        if (_goldManager.Gold >= tower.Price)
         {
             _buildingFactory.Create(tower, transform.position);
-            _goldManager.SpendGold(3);
+            _goldManager.SpendGold(tower.Price);
             Destroy(gameObject);
         }
     }
