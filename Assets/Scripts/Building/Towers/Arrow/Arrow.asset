@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Arrow
   TowerController: {fileID: 11400000, guid: ba56cb432c409f34f81f1860b8871745, type: 2}
+  Icon: {fileID: 21300000, guid: 19aa2c2d2a52d244d9d40c3707765546, type: 3}
+  Price: 3

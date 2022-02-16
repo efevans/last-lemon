@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     private Transform _target;
     private int _waypointIndex;
 
-    private float _speed = 3f;
+    private float _speed = 300f;
     private float _health = 10;
 
     [SerializeField]
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
         Vector2 dir = _target.position - transform.position;
         transform.Translate(dir.normalized * _speed * Time.deltaTime, Space.World);
 
-        if (Vector2.Distance(_target.position, transform.position) < 0.2f)
+        if (Vector2.Distance(_target.position, transform.position) < 10f)
         {
             MoveToNextWaypoint();
         }

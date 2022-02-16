@@ -1,4 +1,5 @@
 using Assets.Scripts.Building;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -6,6 +7,7 @@ public class GameInstaller : MonoInstaller
 {
     public GameObject ProjectilePrefab;
     public GameObject BuildingPrefab;
+    public GameObject BuildableChoicePrefab;
     public GameObject EnemyPrefab;
     public GameObject Waypoint;
 
@@ -22,6 +24,9 @@ public class GameInstaller : MonoInstaller
             .FromComponentInNewPrefab(ProjectilePrefab)
             .WithGameObjectName("Projectile")
             .UnderTransformGroup("Projectiles");
+
+        Container.BindFactory<GameObject, Tower, Action<Tower>, BuildableChoice, BuildableChoice.Factory>()
+            .FromComponentInNewPrefab(BuildableChoicePrefab);
 
         Container.BindFactory<Tower, Vector2, Building, Building.Factory>()
             .FromComponentInNewPrefab(BuildingPrefab)

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Arrow Settings
   m_EditorClassIdentifier: 
   Cooldown: 1.2
-  Damage: 0
-  ProjectileSpeed: 4.5
+  Damage: 3
+  Range: 1000
+  ProjectileSpeed: 1000
   Sprite: {fileID: 21300000, guid: 19aa2c2d2a52d244d9d40c3707765546, type: 3}

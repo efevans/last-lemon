@@ -14,7 +14,7 @@ public class EnemyDetection : MonoBehaviour
     [SerializeField]
     public bool EnemyDetected { get; private set; }
 
-    [Range(0f, 5f)]
+    [Range(0f, 2000f)]
     public float Radius;
 
     [Header("Gizmo Parameters")]

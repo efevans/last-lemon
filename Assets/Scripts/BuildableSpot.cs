@@ -6,23 +6,43 @@ using Zenject;
 
 public class BuildableSpot : MonoBehaviour
 {
-    private TowerDatabase _towerDatabase;
     private Building.Factory _buildingFactory;
     private GoldManager _goldManager;
 
+    [SerializeField]
+    private PopulateBuildableChoice _selectionBackground;
+
     [Inject]
-    public void Construct(TowerDatabase towerDatabase, Building.Factory towerFactory, GoldManager goldManager)
+    public void Construct(
+        Building.Factory towerFactory,
+        GoldManager goldManager)
     {
-        _towerDatabase = towerDatabase;
         _buildingFactory = towerFactory;
         _goldManager = goldManager;
     }
 
     private void OnMouseDown()
     {
+        //if (_goldManager.Gold >= 3)
+        //{
+        //    _buildingFactory.Create(_towerDatabase.GetTower("Axe"), transform.position);
+        //    _goldManager.SpendGold(3);
+        //    Destroy(gameObject);
+        //}
+
+        ExpandSelection();
+    }
+
+    private void ExpandSelection()
+    {
+        _selectionBackground.Setup(OnSelectTower);
+    }
+
+    private void OnSelectTower(Tower tower)
+    {
         if (_goldManager.Gold >= 3)
         {
-            _buildingFactory.Create(_towerDatabase.GetTower("Axe"), transform.position);
+            _buildingFactory.Create(tower, transform.position);
             _goldManager.SpendGold(3);
             Destroy(gameObject);
         }

@@ -12,6 +12,7 @@ namespace Assets.Scripts.Building.Towers.Arrow
 
         public override void Setup(Building building)
         {
+            building.SetRange(Settings.Range);
             building.TowerStateController = new ArrowStateController(Settings, building);
         }
 

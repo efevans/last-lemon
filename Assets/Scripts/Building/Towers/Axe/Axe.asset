@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Axe
   TowerController: {fileID: 11400000, guid: 3c484449036b5994abe74db6cdda0b84, type: 2}
+  Icon: {fileID: 21300000, guid: ca6dfc12f481b8b45b40a6e0cff7fc16, type: 3}
+  Price: 6

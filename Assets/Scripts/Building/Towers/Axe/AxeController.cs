@@ -11,8 +11,8 @@ namespace Assets.Scripts.Building.Towers.Axe
 
         public override void Setup(Building building)
         {
+            building.SetRange(Settings.Range);
             building.TowerStateController = new AxeStateController(Settings, building);
-            //building.SetRange(Settings)
         }
 
         public override void DoUpdate(Building building)

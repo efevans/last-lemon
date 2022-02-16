@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Axe Settings
   m_EditorClassIdentifier: 
   Cooldown: 3
-  Damage: 25
-  ProjectileSpeed: 4
-  Sprite: {fileID: 21300000, guid: 19aa2c2d2a52d244d9d40c3707765546, type: 3}
+  Damage: 1.48
+  Range: 600
+  ProjectileSpeed: 1000
+  Sprite: {fileID: 21300000, guid: ca6dfc12f481b8b45b40a6e0cff7fc16, type: 3}

@@ -8,4 +8,6 @@ public class Tower : ScriptableObject
 {
     public string Name;
     public TowerController TowerController;
+    public Sprite Icon;
+    public int Price;
 }
