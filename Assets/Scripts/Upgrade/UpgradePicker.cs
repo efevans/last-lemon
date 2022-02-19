@@ -38,7 +38,7 @@ public class UpgradePicker : MonoBehaviour
 
     private void OnSelectUpgrade(Upgrade upgrade)
     {
-        upgrade.Behavior.Apply();
+        _upgradesManager.AcquireUpgrade(upgrade);
         gameObject.SetActive(false);
     }
 }

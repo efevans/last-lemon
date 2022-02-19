@@ -9,6 +9,7 @@ public class BuildableSpot : MonoBehaviour
     private TowersManager _towersManager;
     private Building.Factory _buildingFactory;
     private GoldManager _goldManager;
+    private UpgradesManager _upgradesManager;
 
     [SerializeField]
     private PopulateBuildableChoice _selectionBackground;
@@ -17,11 +18,13 @@ public class BuildableSpot : MonoBehaviour
     public void Construct(
         TowersManager towersManager,
         Building.Factory towerFactory,
-        GoldManager goldManager)
+        GoldManager goldManager,
+        UpgradesManager upgradesManager)
     {
         _towersManager = towersManager;
         _buildingFactory = towerFactory;
         _goldManager = goldManager;
+        _upgradesManager = upgradesManager;
     }
 
     private void OnMouseDown()
@@ -40,6 +43,7 @@ public class BuildableSpot : MonoBehaviour
         {
             var building = _buildingFactory.Create(tower, transform.position);
             _towersManager.RegisterBuiltBuilding(building);
+            _upgradesManager.ApplyUpgradesTo(building);
             _goldManager.SpendGold(tower.Price);
             Destroy(gameObject);
         }

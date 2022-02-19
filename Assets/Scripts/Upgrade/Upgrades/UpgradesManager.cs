@@ -1,3 +1,4 @@
+using Assets.Scripts.Building;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ public class UpgradesManager : IInitializable
 {
     private readonly UpgradeDatabase _upgradeDatabase;
     private List<Upgrade> _availableUpgrades;
+    private List<Upgrade> _acquiredUpgrades;
 
     [Inject]
     public UpgradesManager(UpgradeDatabase upgradeDatabase)
@@ -18,6 +20,7 @@ public class UpgradesManager : IInitializable
     public void Initialize()
     {
         _availableUpgrades = new List<Upgrade>();
+        _acquiredUpgrades = new List<Upgrade>();
         SeedUpgrades();
     }
 
@@ -41,6 +44,20 @@ public class UpgradesManager : IInitializable
         foreach (var upgrade in _upgradeDatabase.Upgrades)
         {
             _availableUpgrades.Add(upgrade);
+        }
+    }
+
+    public void AcquireUpgrade(Upgrade upgrade)
+    {
+        upgrade.Behavior.Apply();
+        _acquiredUpgrades.Add(upgrade);
+    }
+
+    public void ApplyUpgradesTo(Building building)
+    {
+        foreach (var upgrade in _acquiredUpgrades)
+        {
+            building.ApplyUpgrade(upgrade.Behavior);
         }
     }
 }
