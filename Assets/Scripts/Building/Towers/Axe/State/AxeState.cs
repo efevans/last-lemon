@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Building.Towers.Axe.State
 {
-    public abstract class AxeState
+    public abstract class AxeState : ITowerState
     {
         protected AxeStateController _controller;
 

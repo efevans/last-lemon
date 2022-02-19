@@ -30,7 +30,7 @@ public class BuildableChoice : MonoBehaviour
     {
         transform.SetParent(_parent.transform);
         _image.sprite = _tower.Icon;
-        _textObject.text = $"{_tower.Price.ToString()}G";
+        _textObject.text = $"{_tower.Price}G";
     }
 
     private void OnMouseDown()

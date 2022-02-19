@@ -1,3 +1,4 @@
+using Assets.Scripts.Building;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class TowersManager : IInitializable
 {
     private readonly TowerDatabase _towerDatabase;
     private List<Tower> _buildableTowers;
+    private List<Building> _buildings;
 
     private static readonly List<string> DefaultTowers = new List<string>() { "Arrow" };
 
@@ -19,6 +21,7 @@ public class TowersManager : IInitializable
     public void Initialize()
     {
         _buildableTowers = new List<Tower>();
+        _buildings = new List<Building>();
         SeedBuildableTowers();
     }
 
@@ -41,5 +44,15 @@ public class TowersManager : IInitializable
         {
             _buildableTowers.Add(_towerDatabase.GetTower(tower));
         }
+    }
+
+    public void RegisterBuiltBuilding(Building building)
+    {
+        _buildings.Add(building);
+    }
+
+    public IReadOnlyList<Building> GetBuildings()
+    {
+        return _buildings.AsReadOnly();
     }
 }

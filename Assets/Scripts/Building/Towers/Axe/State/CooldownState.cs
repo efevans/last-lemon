@@ -17,7 +17,7 @@ namespace Assets.Scripts.Building.Towers.Axe.State
 
         private IEnumerator ChangeToAttack(Building building)
         {
-            yield return new WaitForSeconds(_controller.Settings.Cooldown);
+            yield return new WaitForSeconds(_controller.TowerStatistics.Cooldown);
             _controller.SetState(new WaitingToAttackState(_controller), building);
         }
     }

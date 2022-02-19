@@ -10,7 +10,7 @@ public class PopulateBuildableChoice : MonoBehaviour, IDeselectHandler, IPointer
     private TowersManager _towersManager;
     private BuildableChoice.Factory _buildableChoiceFactory;
 
-    private List<BuildableChoice> Choices = new List<BuildableChoice>();
+    private readonly List<BuildableChoice> Choices = new List<BuildableChoice>();
 
     private bool _justSelected;
     private bool _mouseIsOver;

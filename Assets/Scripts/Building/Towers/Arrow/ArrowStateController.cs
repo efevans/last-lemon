@@ -5,26 +5,15 @@ using UnityEngine;
 
 namespace Assets.Scripts.Building.Towers.Arrow
 {
-    public class ArrowStateController : TowerStateController
+    public class ArrowStateController : BasicTowerStateController
     {
-        private ArrowControlState _state;
-        public ArrowSettings Settings;
-
-        public ArrowStateController(ArrowSettings settings, Building building)
+        public ArrowStateController(TowerBaseSettings settings, Building building) : base(settings, building)
         {
-            Settings = settings;
-            SetState(new WaitingToAttackState(this), building);
         }
 
-        public override void Update(Building building)
+        public override ITowerState StartState()
         {
-            _state.Update(building);
-        }
-
-        public void SetState(ArrowControlState state, Building building)
-        {
-            _state = state;
-            _state.Start(building);
+            return new WaitingToAttackState(this);
         }
     }
 }

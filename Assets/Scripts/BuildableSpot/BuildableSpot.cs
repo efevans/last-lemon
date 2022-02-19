@@ -6,6 +6,7 @@ using Zenject;
 
 public class BuildableSpot : MonoBehaviour
 {
+    private TowersManager _towersManager;
     private Building.Factory _buildingFactory;
     private GoldManager _goldManager;
 
@@ -14,9 +15,11 @@ public class BuildableSpot : MonoBehaviour
 
     [Inject]
     public void Construct(
+        TowersManager towersManager,
         Building.Factory towerFactory,
         GoldManager goldManager)
     {
+        _towersManager = towersManager;
         _buildingFactory = towerFactory;
         _goldManager = goldManager;
     }
@@ -35,7 +38,8 @@ public class BuildableSpot : MonoBehaviour
     {
         if (_goldManager.Gold >= tower.Price)
         {
-            _buildingFactory.Create(tower, transform.position);
+            var building = _buildingFactory.Create(tower, transform.position);
+            _towersManager.RegisterBuiltBuilding(building);
             _goldManager.SpendGold(tower.Price);
             Destroy(gameObject);
         }

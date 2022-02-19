@@ -9,10 +9,7 @@ namespace Assets.Scripts.Building
     {
         public Projectile.Factory ProjectileFactory { get; private set; }
 
-        [SerializeField]
         public EnemyDetection EnemyDetection;
-        [SerializeField]
-        public float Damage;
 
         [HideInInspector]
         public TowerStateController TowerStateController;
@@ -35,12 +32,17 @@ namespace Assets.Scripts.Building
         // Update is called once per frame
         void Update()
         {
-            _tower.TowerController.DoUpdate(this);
+            this.TowerStateController.Update(this);
         }
 
         public void SetRange(float range)
         {
             EnemyDetection.Radius = range;
+        }
+
+        public void ApplyUpgrade(UpgradeBehavior upgrade)
+        {
+            this.TowerStateController.ApplyUpgrade(upgrade);
         }
 
         public class Factory : PlaceholderFactory<Tower, Vector2, Building> { }

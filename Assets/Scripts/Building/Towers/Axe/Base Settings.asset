@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d237bd934b2985e44baf3e3f4cbc083a, type: 3}
-  m_Name: Axe Settings
+  m_Script: {fileID: 11500000, guid: efce8704b80d9c841ace0e6eb0eb9a4c, type: 3}
+  m_Name: Base Settings
   m_EditorClassIdentifier: 
   Cooldown: 3
   Damage: 3.75

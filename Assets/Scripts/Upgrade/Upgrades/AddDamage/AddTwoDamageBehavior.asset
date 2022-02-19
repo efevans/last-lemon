@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e45c0ebb7e247af48abed30c8f9a1cdc, type: 3}
-  m_Name: Arrow Settings
+  m_Script: {fileID: 11500000, guid: 772eef045e81d944184a241643b2cbf5, type: 3}
+  m_Name: AddTwoDamageBehavior
   m_EditorClassIdentifier: 
-  Cooldown: 1.2
-  Damage: 3
-  Range: 1000
-  ProjectileSpeed: 1000
-  Sprite: {fileID: 21300000, guid: 19aa2c2d2a52d244d9d40c3707765546, type: 3}
+  Amount: 2

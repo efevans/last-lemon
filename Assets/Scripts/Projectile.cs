@@ -23,6 +23,7 @@ public class Projectile : MonoBehaviour
         Damage = damage;
         Speed = speed;
         Sprite = sprite;
+        Debug.Log($"Projectile created with damage {damage}");
     }
 
     // Start is called before the first frame update

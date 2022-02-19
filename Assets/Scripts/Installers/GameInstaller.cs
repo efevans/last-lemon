@@ -17,6 +17,7 @@ public class GameInstaller : MonoInstaller
     public GoldManager GoldManager;
 
     public AddAxeTowerBehavior AddAxeTowerBehavior;
+    public AddDamageBehavior AddTwoDamageBehavior;
 
     public override void InstallBindings()
     {
@@ -63,6 +64,7 @@ public class GameInstaller : MonoInstaller
             .AsSingle();
 
         Container.QueueForInject(AddAxeTowerBehavior);
+        Container.QueueForInject(AddTwoDamageBehavior);
 
         InstallSignals();
     }

@@ -17,9 +17,9 @@ namespace Assets.Scripts.Building.Towers.Axe.State
                 building.ProjectileFactory.Create(
                     building.transform.position,
                     enemy,
-                    _controller.Settings.Sprite,
-                    _controller.Settings.Damage,
-                    _controller.Settings.ProjectileSpeed);
+                    _controller.TowerStatistics.Sprite,
+                    _controller.TowerStatistics.Damage,
+                    _controller.TowerStatistics.ProjectileSpeed);
                 _controller.SetState(new CooldownState(_controller), building);
             }
         }

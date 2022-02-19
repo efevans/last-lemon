@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a355f96b00ad6a4aa2a8d907579e4a2, type: 3}
   m_Name: Axe Controller
   m_EditorClassIdentifier: 
-  Settings: {fileID: 11400000, guid: df00f344251c0e3499408d56f2c87b13, type: 2}
+  Settings: {fileID: 11400000, guid: 844f62209f558c74995bd30a54ee6a49, type: 2}

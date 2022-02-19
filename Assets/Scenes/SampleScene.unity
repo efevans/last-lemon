@@ -2726,6 +2726,7 @@ MonoBehaviour:
   UpgradeDatabase: {fileID: 11400000, guid: a5fa6084eae73ac46a644ea2efea79b9, type: 2}
   GoldManager: {fileID: 1046973407}
   AddAxeTowerBehavior: {fileID: 11400000, guid: de1f79149dd06bc459a4b09ef6c46f4a, type: 2}
+  AddTwoDamageBehavior: {fileID: 11400000, guid: 519511a0e65206f45a52933cdc80fa4f, type: 2}
 --- !u!114 &1769014857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3329,7 +3330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7138830097063364391, guid: e02b6e6ba0310f74d9908fa211ac2775, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 58.333332
+      value: 58.33333
       objectReference: {fileID: 0}
     - target: {fileID: 7138830097063364391, guid: e02b6e6ba0310f74d9908fa211ac2775, type: 3}
       propertyPath: m_AnchoredPosition.y

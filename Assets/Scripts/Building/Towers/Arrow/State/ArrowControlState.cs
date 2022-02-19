@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Building.Towers.Arrow.State
 {
-    public abstract class ArrowControlState
+    public abstract class ArrowControlState : ITowerState
     {
         protected ArrowStateController _controller;
 
