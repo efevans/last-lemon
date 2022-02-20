@@ -14,7 +14,7 @@ public class PopulateBuildableChoice : MonoBehaviour, IDeselectHandler, IPointer
 
     private bool _justSelected;
     private bool _mouseIsOver;
-    private Action<Tower> _onSelectTower;
+    private Action<TowerSpecification> _onSelectTower;
 
     [Inject]
     public void Construct(TowersManager towersManager, BuildableChoice.Factory factory)
@@ -23,7 +23,7 @@ public class PopulateBuildableChoice : MonoBehaviour, IDeselectHandler, IPointer
         _buildableChoiceFactory = factory;
     }
 
-    public void Setup(Action<Tower> onSelectTower)
+    public void Setup(Action<TowerSpecification> onSelectTower)
     {
         _onSelectTower = onSelectTower;
         _justSelected = true;

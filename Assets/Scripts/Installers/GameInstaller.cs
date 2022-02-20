@@ -42,7 +42,7 @@ public class GameInstaller : MonoInstaller
             .WithGameObjectName("Projectile")
             .UnderTransformGroup("Projectiles");
 
-        Container.BindFactory<GameObject, Tower, Action<Tower>, BuildableChoice, BuildableChoice.Factory>()
+        Container.BindFactory<GameObject, TowerSpecification, Action<TowerSpecification>, BuildableChoice, BuildableChoice.Factory>()
             .FromComponentInNewPrefab(BuildableChoicePrefab);
 
         Container.BindFactory<Tower, Vector2, Building, Building.Factory>()

@@ -14,14 +14,14 @@ public class BuildableChoice : MonoBehaviour
     private TextMeshProUGUI _textObject;
 
     private GameObject _parent;
-    private Tower _tower;
-    private Action<Tower> _onClick;
+    private TowerSpecification _towerSpecification;
+    private Action<TowerSpecification> _onClick;
 
     [Inject]
-    public void Construct(GameObject gameObject, Tower tower, Action<Tower> onClick)
+    public void Construct(GameObject gameObject, TowerSpecification tower, Action<TowerSpecification> onClick)
     {
         _parent = gameObject;
-        _tower = tower;
+        _towerSpecification = tower;
         _onClick = onClick;
     }
 
@@ -29,14 +29,14 @@ public class BuildableChoice : MonoBehaviour
     void Start()
     {
         transform.SetParent(_parent.transform);
-        _image.sprite = _tower.Icon;
-        _textObject.text = $"{_tower.Price}G";
+        _image.sprite = _towerSpecification.Tower.Icon;
+        _textObject.text = $"{_towerSpecification.Price}G";
     }
 
     private void OnMouseDown()
     {
-        _onClick(_tower);
+        _onClick(_towerSpecification);
     }
 
-    public class Factory : PlaceholderFactory<GameObject, Tower, Action<Tower>, BuildableChoice> { }
+    public class Factory : PlaceholderFactory<GameObject, TowerSpecification, Action<TowerSpecification>, BuildableChoice> { }
 }

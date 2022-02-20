@@ -7,7 +7,8 @@ using Zenject;
 public class TowersManager : IInitializable
 {
     private readonly TowerDatabase _towerDatabase;
-    private List<Tower> _buildableTowers;
+    private List<TowerSpecification> _towerSpecifications;
+    private List<TowerSpecification> _buildableTowers;
     private List<Building> _buildings;
 
     private static readonly List<string> DefaultTowers = new List<string>() { "Arrow" };
@@ -20,21 +21,31 @@ public class TowersManager : IInitializable
 
     public void Initialize()
     {
-        _buildableTowers = new List<Tower>();
+        _buildableTowers = new List<TowerSpecification>();
+        _towerSpecifications = new List<TowerSpecification>();
         _buildings = new List<Building>();
+        SeedTowerSpecifications();
         SeedBuildableTowers();
     }
 
-    public IReadOnlyList<Tower> GetBuildableTowers()
+    private void SeedTowerSpecifications()
+    {
+        foreach (Tower tower in _towerDatabase.Towers)
+        {
+            _towerSpecifications.Add(new TowerSpecification(tower));
+        }
+    }
+
+    public IReadOnlyList<TowerSpecification> GetBuildableTowers()
     {
         return _buildableTowers.AsReadOnly();
     }
 
     public void EnableTower(string id)
     {
-        if (!_buildableTowers.Exists(t => t.Name == id))
+        if (!_buildableTowers.Exists(t => t.Tower.Name == id))
         {
-            _buildableTowers.Add(_towerDatabase.GetTower(id));
+            _buildableTowers.Add(new TowerSpecification(_towerDatabase.GetTower(id)));
         }
     }
 
@@ -42,7 +53,7 @@ public class TowersManager : IInitializable
     {
         foreach (var tower in DefaultTowers)
         {
-            _buildableTowers.Add(_towerDatabase.GetTower(tower));
+            EnableTower(tower);
         }
     }
 

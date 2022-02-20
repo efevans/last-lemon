@@ -37,14 +37,14 @@ public class BuildableSpot : MonoBehaviour
         _selectionBackground.Setup(OnSelectTower);
     }
 
-    private void OnSelectTower(Tower tower)
+    private void OnSelectTower(TowerSpecification towerSpecification)
     {
-        if (_goldManager.Gold >= tower.Price)
+        if (_goldManager.Gold >= towerSpecification.Price)
         {
-            var building = _buildingFactory.Create(tower, transform.position);
+            var building = _buildingFactory.Create(towerSpecification.Tower, transform.position);
             _towersManager.RegisterBuiltBuilding(building);
             _upgradesManager.ApplyUpgradesTo(building);
-            _goldManager.SpendGold(tower.Price);
+            _goldManager.SpendGold(towerSpecification.Price);
             Destroy(gameObject);
         }
     }

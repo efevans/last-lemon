@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6113484e90a394d4a8e90ac95b51e841, type: 3}
   m_Name: AddTwoDamage
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: ed18bae08d39b1c42bf787a9b2016d47, type: 3}
+  Icon: {fileID: 21300000, guid: 5db85bf1a15fd7b449a0bd5764b823b8, type: 3}
   Behavior: {fileID: 11400000, guid: 519511a0e65206f45a52933cdc80fa4f, type: 2}
