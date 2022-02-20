@@ -23,5 +23,6 @@ public class ReduceTowerCostBehavior : UpgradeBehavior
     {
         var specification = _towersManager.GetTowerSpecifications().Where(t => t.Tower == _tower).Single();
         specification.Price -= 1;
+        specification.Price = Mathf.Max(0, specification.Price);
     }
 }
