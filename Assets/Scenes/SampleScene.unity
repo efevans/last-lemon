@@ -2725,10 +2725,9 @@ MonoBehaviour:
   TowerDatabase: {fileID: 11400000, guid: 625afc0b819df024084b7b2114bd9a95, type: 2}
   UpgradeDatabase: {fileID: 11400000, guid: a5fa6084eae73ac46a644ea2efea79b9, type: 2}
   GoldManager: {fileID: 1046973407}
-  UpgradeSOs:
-  - {fileID: 11400000, guid: 175f7e70cb985344ebfdc927aadb3108, type: 2}
-  - {fileID: 11400000, guid: 8d9811883f8f97a4da8ef077ba56a8b3, type: 2}
-  - {fileID: 11400000, guid: b9adb2fa7fa81674fbeacaac7b821197, type: 2}
+  AddAxeTowerBehavior: {fileID: 11400000, guid: de1f79149dd06bc459a4b09ef6c46f4a, type: 2}
+  AddTwoDamageBehavior: {fileID: 11400000, guid: 519511a0e65206f45a52933cdc80fa4f, type: 2}
+  ReduceArrowTowerCostByOneBehavior: {fileID: 11400000, guid: cc5a08b3629112845b73873063524ac2, type: 2}
 --- !u!114 &1769014857
 MonoBehaviour:
   m_ObjectHideFlags: 0
