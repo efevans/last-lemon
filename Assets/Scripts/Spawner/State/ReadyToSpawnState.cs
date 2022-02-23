@@ -8,11 +8,11 @@ namespace Assets.Scripts.Spawner.State
 
         public override void OnUpdate()
         {
-            if (_spawner.RemainingSpawns > 0)
+            if (!_spawner.SpawnGroupHelperM.SpawningIsFinished)
             {
-                _spawner.EnemyFactory.Create(_spawner.transform.position);
+                var nextEnemy = _spawner.SpawnGroupHelperM.GetNextEnemy();
+                _spawner.EnemyFactory.Create(nextEnemy, _spawner.transform.position);
                 _spawner.SetSpawnState(new SpawnIntervalState(_spawner));
-                _spawner.RemainingSpawns--;
             }
         }
     }

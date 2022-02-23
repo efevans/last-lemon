@@ -6,6 +6,8 @@ using Zenject;
 
 public class UpgradePicker : MonoBehaviour
 {
+    private SignalBus _signalBus;
+
     [SerializeField]
     private UpgradeChoice _left;
     [SerializeField]
@@ -15,15 +17,30 @@ public class UpgradePicker : MonoBehaviour
 
     private UpgradesManager _upgradesManager;
 
+    private int _upgradeProgress = 0;
+
     [Inject]
-    public void Construct(UpgradesManager upgradesManager)
+    public void Construct(SignalBus signalBus, UpgradesManager upgradesManager)
     {
+        _signalBus = signalBus;
         _upgradesManager = upgradesManager;
+        _signalBus.Subscribe<ISignalUpgradeProgress>(OnUpgradeProgressSignaled);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnUpgradeProgressSignaled(ISignalUpgradeProgress _)
     {
+        _upgradeProgress += 1;
+
+        if (_upgradeProgress >= 5)
+        {
+            _upgradeProgress = 0;
+            gameObject.SetActive(true);
+        }
+    }
+
+    private void OnEnable()
+    {
+        Time.timeScale = 0;
         SetupChoices();
     }
 
@@ -39,6 +56,7 @@ public class UpgradePicker : MonoBehaviour
     private void OnSelectUpgrade(Upgrade upgrade)
     {
         _upgradesManager.AcquireUpgrade(upgrade);
+        Time.timeScale = 1;
         gameObject.SetActive(false);
     }
 }

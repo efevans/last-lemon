@@ -1,4 +1,4 @@
-public class SignalEnemyDeath : ISignalGoldManager
+public class SignalEnemyDeath : ISignalGoldManager, ISignalUpgradeProgress
 {
     
 }
