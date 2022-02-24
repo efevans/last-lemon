@@ -11,7 +11,8 @@ namespace Assets.Scripts.Spawner.State
             if (!_spawner.SpawnGroupHelperM.SpawningIsFinished)
             {
                 var nextEnemy = _spawner.SpawnGroupHelperM.GetNextEnemy();
-                _spawner.EnemyFactory.Create(nextEnemy, _spawner.transform.position);
+                var enemy = _spawner.EnemyFactory.Create(nextEnemy, _spawner.transform.position);
+                _spawner.Enemies.Add(enemy);
                 _spawner.SetSpawnState(new SpawnIntervalState(_spawner));
             }
         }

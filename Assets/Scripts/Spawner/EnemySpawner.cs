@@ -18,7 +18,7 @@ namespace Assets.Scripts.Spawner
 
         public SpawnGroupHelper SpawnGroupHelperM;
 
-        public List<Enemy> Enemies { get; private set; }
+        public List<EnemyUnit> Enemies { get; private set; }
 
         [Inject]
         public void Construct(EnemyUnit.Factory factory, Settings settings)
@@ -36,7 +36,7 @@ namespace Assets.Scripts.Spawner
         public void StartRound()
         {
             RemoveEnemies();
-            Enemies = new List<Enemy>();
+            Enemies = new List<EnemyUnit>();
             SpawnGroupHelperM = new SpawnGroupHelper(SpawnerSettings.SpawnGroups);
             _state.StartRound();
         }
