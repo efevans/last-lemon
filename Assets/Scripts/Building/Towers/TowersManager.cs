@@ -8,8 +8,8 @@ using Zenject;
 public class TowersManager : IInitializable
 {
     private readonly TowerDatabase _towerDatabase;
-    private Dictionary<Tower, TowerSpecification> _towerSpecifications;
-    private List<Building> _buildings;
+    private Dictionary<Tower, TowerSpecification> _towerSpecifications = new Dictionary<Tower, TowerSpecification>();
+    private List<Building> _buildings = new List<Building>();
 
     private static readonly List<string> DefaultTowers = new List<string>() { "Arrow" };
 
@@ -27,8 +27,8 @@ public class TowersManager : IInitializable
     public void SetDefaultState()
     {
         UnbuildBuildings();
-        _buildings = new List<Building>();
-        _towerSpecifications = new Dictionary<Tower, TowerSpecification>();
+        _buildings.Clear();
+        _towerSpecifications.Clear();
         SeedTowerSpecifications();
         SeedBuildableTowers();
     }
@@ -42,7 +42,7 @@ public class TowersManager : IInitializable
         {
             building.Unbuild();
         }
-        _buildings = new List<Building>();
+        _buildings.Clear();
     }
 
     private void SeedTowerSpecifications()
