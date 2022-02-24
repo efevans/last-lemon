@@ -2,7 +2,7 @@ namespace Assets.Scripts.Spawner.State
 {
     public class ReadyToSpawnState : SpawnState
     {
-        public ReadyToSpawnState(Spawner spawner) : base(spawner)
+        public ReadyToSpawnState(EnemySpawner spawner) : base(spawner)
         {
         }
 
@@ -14,6 +14,11 @@ namespace Assets.Scripts.Spawner.State
                 _spawner.EnemyFactory.Create(nextEnemy, _spawner.transform.position);
                 _spawner.SetSpawnState(new SpawnIntervalState(_spawner));
             }
+        }
+
+        public override void StopSpawning()
+        {
+            _spawner.SetSpawnState(new NotSpawningState(_spawner));
         }
     }
 }

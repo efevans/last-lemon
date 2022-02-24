@@ -16,11 +16,16 @@ public class BuildableSpot : MonoBehaviour
 
     [Inject]
     public void Construct(
+        [InjectOptional]Vector2? spawnLocation,
         TowersManager towersManager,
         Building.Factory towerFactory,
         GoldManager goldManager,
         UpgradesManager upgradesManager)
     {
+        if (spawnLocation != null)
+        {
+            transform.position = spawnLocation.Value;
+        }
         _towersManager = towersManager;
         _buildingFactory = towerFactory;
         _goldManager = goldManager;
@@ -48,4 +53,6 @@ public class BuildableSpot : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public class Factory : PlaceholderFactory<Vector2, BuildableSpot> { }
 }

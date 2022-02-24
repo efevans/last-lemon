@@ -2,9 +2,9 @@ namespace Assets.Scripts.Spawner.State
 {
     public abstract class SpawnState
     {
-        protected Spawner _spawner;
+        protected EnemySpawner _spawner;
 
-        public SpawnState(Spawner spawner)
+        public SpawnState(EnemySpawner spawner)
         {
             _spawner = spawner;
         }
@@ -12,5 +12,9 @@ namespace Assets.Scripts.Spawner.State
         public virtual void Start() { }
 
         public virtual void OnUpdate() { }
+
+        public virtual void StartRound() { }
+
+        public virtual void StopSpawning() { }
     }
 }

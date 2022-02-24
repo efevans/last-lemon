@@ -8,6 +8,7 @@ namespace Assets.Scripts.Building
     public class Building : MonoBehaviour
     {
         public Projectile.Factory ProjectileFactory { get; private set; }
+        public BuildableSpot.Factory BuildableSpotFactory { get; private set; }
 
         public EnemyDetection EnemyDetection;
 
@@ -16,11 +17,16 @@ namespace Assets.Scripts.Building
         private Tower _tower;
 
         [Inject]
-        public void Construct(Tower tower, Vector2 spawnLocation, Projectile.Factory factory)
+        public void Construct(
+            Tower tower,
+            Vector2 spawnLocation,
+            BuildableSpot.Factory buildableFactory,
+            Projectile.Factory projectileFactory)
         {
             _tower = tower;
             transform.position = spawnLocation;
-            ProjectileFactory = factory;
+            BuildableSpotFactory = buildableFactory;
+            ProjectileFactory = projectileFactory;
         }
 
         // Start is called before the first frame update
@@ -43,6 +49,12 @@ namespace Assets.Scripts.Building
         public void ApplyUpgrade(UpgradeBehavior upgrade)
         {
             this.TowerStateController.ApplyUpgrade(upgrade);
+        }
+
+        public void Unbuild()
+        {
+            BuildableSpotFactory.Create(transform.position);
+            Destroy(gameObject);
         }
 
         public class Factory : PlaceholderFactory<Tower, Vector2, Building> { }

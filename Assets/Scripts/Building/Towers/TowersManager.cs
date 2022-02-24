@@ -21,10 +21,28 @@ public class TowersManager : IInitializable
 
     public void Initialize()
     {
-        _towerSpecifications = new Dictionary<Tower, TowerSpecification>();
+        SetDefaultState();
+    }
+
+    public void SetDefaultState()
+    {
+        UnbuildBuildings();
         _buildings = new List<Building>();
+        _towerSpecifications = new Dictionary<Tower, TowerSpecification>();
         SeedTowerSpecifications();
         SeedBuildableTowers();
+    }
+
+    public void UnbuildBuildings()
+    {
+        if (_buildings == null)
+            return;
+
+        foreach (var building in _buildings)
+        {
+            building.Unbuild();
+        }
+        _buildings = new List<Building>();
     }
 
     private void SeedTowerSpecifications()

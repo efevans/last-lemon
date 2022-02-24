@@ -8,7 +8,7 @@ using Zenject;
 
 namespace Assets.Scripts.Spawner
 {
-    public class Spawner : MonoBehaviour
+    public class EnemySpawner : MonoBehaviour
     {
         public EnemyUnit.Factory EnemyFactory;
         [HideInInspector]
@@ -18,18 +18,46 @@ namespace Assets.Scripts.Spawner
 
         public SpawnGroupHelper SpawnGroupHelperM;
 
+        public List<Enemy> Enemies { get; private set; }
+
         [Inject]
         public void Construct(EnemyUnit.Factory factory, Settings settings)
         {
             EnemyFactory = factory;
             SpawnerSettings = settings;
-            SpawnGroupHelperM = new SpawnGroupHelper(settings.SpawnGroups);
         }
 
 
-        private void Start()
+        private void OnEnable()
         {
-            SetSpawnState(new SpawnIntervalState(this));
+            SetSpawnState(new NotSpawningState(this));
+        }
+
+        public void StartRound()
+        {
+            RemoveEnemies();
+            Enemies = new List<Enemy>();
+            SpawnGroupHelperM = new SpawnGroupHelper(SpawnerSettings.SpawnGroups);
+            _state.StartRound();
+        }
+
+        private void RemoveEnemies()
+        {
+            if (Enemies == null)
+                return;
+
+            foreach (var enemy in Enemies)
+            {
+                if (enemy != null)
+                {
+                    Destroy(enemy);
+                }
+            }
+        }
+
+        public void StopSpawning()
+        {
+            _state.StopSpawning();
         }
 
         private void Update()

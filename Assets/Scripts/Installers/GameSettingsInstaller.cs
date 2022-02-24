@@ -5,7 +5,7 @@ using Zenject;
 [CreateAssetMenu(fileName = "GameSettingsInstaller", menuName = "Installers/GameSettingsInstaller")]
 public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInstaller>
 {
-    public Spawner.Settings SpawnerSettings;
+    public EnemySpawner.Settings SpawnerSettings;
     public GoldManager.Settings GoldManagerSettings;
 
     public override void InstallBindings()

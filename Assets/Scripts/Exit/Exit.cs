@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,18 @@ using Zenject;
 
 public class Exit : MonoBehaviour
 {
-    private SignalBus _signalBus;
+    private Action _onLossCallback;
+    private bool _callbackMade = false;
 
     [Inject]
-    public void Construct(SignalBus signalBus)
+    public void Construct()
     {
-        _signalBus = signalBus;
+        
+    }
+
+    public void SetOnLossCallback(Action callback)
+    {
+        _onLossCallback = callback;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,6 +25,11 @@ public class Exit : MonoBehaviour
         if (collision.gameObject.CompareTag("enemy"))
         {
             Destroy(collision.gameObject);
+            if (!_callbackMade)
+            {
+                _onLossCallback.Invoke();
+                _callbackMade = true;
+            }
         }
     }
 }

@@ -25,9 +25,14 @@ public class GoldManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ResetToStartingGold();
+        _signalBus.Subscribe<ISignalGoldManager>(OnGoldManagerSignaled);
+    }
+
+    public void ResetToStartingGold()
+    {
         Gold = _mySettings.StartingGold;
         UpdateGoldDisplay(Gold);
-        _signalBus.Subscribe<ISignalGoldManager>(OnGoldManagerSignaled);
     }
 
     private void OnDestroy()

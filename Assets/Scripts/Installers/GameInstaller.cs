@@ -1,4 +1,5 @@
 using Assets.Scripts.Building;
+using Assets.Scripts.Level;
 using Assets.Scripts.Spawner;
 using System;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class GameInstaller : MonoInstaller
 {
     public GameObject ProjectilePrefab;
     public GameObject BuildingPrefab;
+    public GameObject BuildableLocation;
     public GameObject BuildableChoicePrefab;
     public GameObject EnemyPrefab;
     public GameObject Waypoint;
@@ -16,8 +18,9 @@ public class GameInstaller : MonoInstaller
     public UpgradeDatabase UpgradeDatabase;
 
     public GoldManager GoldManager;
-    public Grid Grid;
-    public Spawner Spawner;
+    public EnemySpawner Spawner;
+    public Exit Exit;
+    public OverlayInstructions OverlayInstructions;
 
     public EnableTowerBehavior AddAxeTowerBehavior;
     public AddDamageBehavior AddTwoDamageBehavior;
@@ -25,7 +28,7 @@ public class GameInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        Container.BindInterfacesAndSelfTo<GameController>()
+        Container.BindInterfacesAndSelfTo<LevelController>()
             .FromNew()
             .AsSingle()
             .NonLazy();
@@ -64,6 +67,11 @@ public class GameInstaller : MonoInstaller
             .WithGameObjectName("Enemy")
             .UnderTransformGroup("Enemies");
 
+        Container.BindFactory<Vector2, BuildableSpot, BuildableSpot.Factory>()
+            .FromComponentInNewPrefab(BuildableLocation)
+            .WithGameObjectName("BuildableLocation")
+            .UnderTransformGroup("BuildableLocations");
+
         Container.BindInterfacesAndSelfTo<Waypoint>()
             .FromComponentsOn(Waypoint)
             .AsSingle();
@@ -72,11 +80,15 @@ public class GameInstaller : MonoInstaller
             .FromInstance(GoldManager)
             .AsSingle();
 
-        Container.BindInterfacesAndSelfTo<Grid>()
-            .FromInstance(Grid)
+        Container.BindInterfacesAndSelfTo<Exit>()
+            .FromInstance(Exit)
             .AsSingle();
 
-        Container.BindInterfacesAndSelfTo<Spawner>()
+        Container.BindInterfacesAndSelfTo<OverlayInstructions>()
+            .FromInstance(OverlayInstructions)
+            .AsSingle();
+
+        Container.BindInterfacesAndSelfTo<EnemySpawner>()
             .FromInstance(Spawner)
             .AsSingle();
 
