@@ -11,7 +11,7 @@ namespace Assets.Scripts.Level
 {
     public class LevelController : IInitializable, ITickable
     {
-        private readonly Exit _exit;
+        public readonly Exit Exit;
         public readonly EnemySpawner Spawner;
         public readonly OverlayInstructions OverlayInstructions;
         public readonly TowersManager TowersManager;
@@ -22,7 +22,7 @@ namespace Assets.Scripts.Level
         public LevelController(Exit exit, EnemySpawner spawner, OverlayInstructions overlayInstructions,
             TowersManager towersManager, GoldManager goldManager)
         {
-            _exit = exit;
+            Exit = exit;
             Spawner = spawner;
             OverlayInstructions = overlayInstructions;
             TowersManager = towersManager;
@@ -31,7 +31,7 @@ namespace Assets.Scripts.Level
 
         public void Initialize()
         {
-            _exit.SetOnLossCallback(OnLoss);
+            Exit.SetOnLossCallback(OnLoss);
             SetState(new WaitingToStart(this));
         }
 

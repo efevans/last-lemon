@@ -19,6 +19,7 @@ namespace Assets.Scripts.Level.State
                 _controller.OverlayInstructions.Hide();
                 _controller.TowersManager.SetDefaultState();
                 _controller.GoldManager.ResetToStartingGold();
+                _controller.Exit.ResetExit();
 
                 _controller.SetState(new PlayingState(_controller));
             }

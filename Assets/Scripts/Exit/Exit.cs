@@ -20,6 +20,11 @@ public class Exit : MonoBehaviour
         _onLossCallback = callback;
     }
 
+    public void ResetExit()
+    {
+        _callbackMade = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("enemy"))
