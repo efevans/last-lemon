@@ -8,8 +8,8 @@ using Zenject;
 public class TowersManager : IInitializable
 {
     private readonly TowerDatabase _towerDatabase;
-    private Dictionary<Tower, TowerSpecification> _towerSpecifications = new Dictionary<Tower, TowerSpecification>();
-    private List<Building> _buildings = new List<Building>();
+    private readonly Dictionary<Tower, TowerSpecification> _towerSpecifications = new Dictionary<Tower, TowerSpecification>();
+    private readonly List<Building> _buildings = new List<Building>();
 
     private static readonly List<string> DefaultTowers = new List<string>() { "Arrow" };
 
