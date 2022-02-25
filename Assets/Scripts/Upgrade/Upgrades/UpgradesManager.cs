@@ -31,12 +31,25 @@ public class UpgradesManager : IInitializable
 
     public List<Upgrade> GetThreeRandomUpgrades()
     {
-        return new List<Upgrade>()
+        HashSet<int> upgradeIndecies = new HashSet<int>();
+        for (int i = 0; i < 3; i++)
         {
-            _availableUpgrades.ElementAt(0),
-            _availableUpgrades.ElementAt(1),
-            _availableUpgrades.ElementAt(2),
-        };
+            bool upgradeFound = false;
+
+            do
+            {
+                int rand = Random.Range(0, _availableUpgrades.Count);
+
+                if (!upgradeIndecies.Contains(rand))
+                {
+                    upgradeIndecies.Add(rand);
+                    upgradeFound = true;
+                }
+
+            } while (upgradeFound == false);
+        }
+
+        return upgradeIndecies.Select(i => _availableUpgrades.ElementAt(i)).ToList();
     }
 
     public void SeedUpgrades()

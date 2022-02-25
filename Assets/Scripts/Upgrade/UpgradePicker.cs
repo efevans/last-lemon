@@ -31,7 +31,7 @@ public class UpgradePicker : MonoBehaviour
     {
         _upgradeProgress += 1;
 
-        if (_upgradeProgress >= 5)
+        if (_upgradeProgress >= 2)
         {
             _upgradeProgress = 0;
             gameObject.SetActive(true);
