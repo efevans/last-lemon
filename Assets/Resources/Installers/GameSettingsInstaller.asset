@@ -20,3 +20,6 @@ MonoBehaviour:
       Count: 87
   GoldManagerSettings:
     StartingGold: 12
+  AudioManagerSettings:
+    BGM: {fileID: 8300000, guid: 5339addc202694c4b92b721de724b84c, type: 3}
+    Volume: 0.033

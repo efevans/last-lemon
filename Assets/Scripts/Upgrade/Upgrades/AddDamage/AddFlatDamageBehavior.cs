@@ -5,7 +5,7 @@ using UnityEngine;
 using Zenject;
 
 [CreateAssetMenu(fileName = "Behavior", menuName = "Upgrade/Add Damage/Behavior")]
-public class AddDamageBehavior : UpgradeBehavior
+public class AddFlatDamageBehavior : UpgradeBehavior
 {
     public float Amount;
 

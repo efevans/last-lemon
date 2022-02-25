@@ -14,6 +14,8 @@ public class GameInstaller : MonoInstaller
     public GameObject EnemyPrefab;
     public GameObject Waypoint;
 
+    public AudioSource AudioSource;
+
     public TowerDatabase TowerDatabase;
     public UpgradeDatabase UpgradeDatabase;
 
@@ -23,11 +25,18 @@ public class GameInstaller : MonoInstaller
     public OverlayInstructions OverlayInstructions;
 
     public EnableTowerBehavior AddAxeTowerBehavior;
-    public AddDamageBehavior AddTwoDamageBehavior;
+    public AddFlatDamageBehavior AddTwoDamageBehavior;
     public ReduceTowerCostBehavior ReduceArrowTowerCostByOneBehavior;
 
     public override void InstallBindings()
     {
+        Container.BindInterfacesAndSelfTo<AudioSource>()
+            .FromInstance(AudioSource);
+
+        Container.BindInterfacesAndSelfTo<AudioManager>()
+            .AsSingle()
+            .NonLazy();
+
         Container.BindInterfacesAndSelfTo<LevelController>()
             .FromNew()
             .AsSingle()
