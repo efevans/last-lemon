@@ -4127,6 +4127,8 @@ MonoBehaviour:
   Exit: {fileID: 363420873}
   OverlayInstructions: {fileID: 1796145880}
   AddAxeTowerBehavior: {fileID: 11400000, guid: de1f79149dd06bc459a4b09ef6c46f4a, type: 2}
+  AddHalfDamageBehavior: {fileID: 11400000, guid: a50a4d48c655485409c11c7f1edc7b36, type: 2}
+  AddOneDamageBehavior: {fileID: 11400000, guid: 49c4de584b0df184ab39013a0927e9ac, type: 2}
   AddTwoDamageBehavior: {fileID: 11400000, guid: 519511a0e65206f45a52933cdc80fa4f, type: 2}
   ReduceArrowTowerCostByOneBehavior: {fileID: 11400000, guid: cc5a08b3629112845b73873063524ac2, type: 2}
   IncreaseDamageByTenth: {fileID: 11400000, guid: ff1f0085068b4144d9baca16efe61070, type: 2}
@@ -4585,7 +4587,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildableLocation
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1299118813844352682, guid: 7fe391abe348e7e41a8b4fe35b58bb9e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7fe391abe348e7e41a8b4fe35b58bb9e, type: 3}
 --- !u!4 &2018632744 stripped
 Transform:

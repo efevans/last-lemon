@@ -25,6 +25,8 @@ public class GameInstaller : MonoInstaller
     public OverlayInstructions OverlayInstructions;
 
     public EnableTowerBehavior AddAxeTowerBehavior;
+    public AddFlatDamageBehavior AddHalfDamageBehavior;
+    public AddFlatDamageBehavior AddOneDamageBehavior;
     public AddFlatDamageBehavior AddTwoDamageBehavior;
     public ReduceTowerCostBehavior ReduceArrowTowerCostByOneBehavior;
     public MultipleDamageBehavior IncreaseDamageByTenth;
@@ -105,6 +107,8 @@ public class GameInstaller : MonoInstaller
             .AsSingle();
 
         Container.QueueForInject(AddAxeTowerBehavior);
+        Container.QueueForInject(AddHalfDamageBehavior);
+        Container.QueueForInject(AddOneDamageBehavior);
         Container.QueueForInject(AddTwoDamageBehavior);
         Container.QueueForInject(IncreaseDamageByTenth);
         Container.QueueForInject(ReduceArrowTowerCostByOneBehavior);

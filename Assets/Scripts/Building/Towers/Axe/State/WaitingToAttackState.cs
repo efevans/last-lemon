@@ -12,6 +12,8 @@ namespace Assets.Scripts.Building.Towers.Axe.State
 
         public override void Update(Building building)
         {
+            int count = 0;
+
             foreach (var enemy in building.EnemyDetection.EnemiesInRange)
             {
                 building.ProjectileFactory.Create(
@@ -21,6 +23,13 @@ namespace Assets.Scripts.Building.Towers.Axe.State
                     _controller.TowerStatistics.Damage,
                     _controller.TowerStatistics.ProjectileSpeed);
                 _controller.SetState(new CooldownState(_controller), building);
+
+                count++;
+
+                if (count >= 3)
+                {
+                    break;
+                }
             }
         }
     }
