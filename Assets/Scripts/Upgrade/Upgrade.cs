@@ -7,4 +7,6 @@ public class Upgrade : ScriptableObject
 {
     public Sprite Icon;
     public UpgradeBehavior Behavior;
+    [Range(1, 10)]
+    public int Weight = 1;
 }

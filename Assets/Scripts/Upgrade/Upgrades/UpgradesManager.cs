@@ -31,25 +31,39 @@ public class UpgradesManager : IInitializable
 
     public List<Upgrade> GetThreeRandomUpgrades()
     {
-        HashSet<int> upgradeIndecies = new HashSet<int>();
+        HashSet<Upgrade> upgrades = new HashSet<Upgrade>();
+        int totalWeight = _availableUpgrades.Sum(u => u.Weight);
+        Debug.Log($"Total Weight {totalWeight}");
+
         for (int i = 0; i < 3; i++)
         {
+            Upgrade tempUpgrade = null;
             bool upgradeFound = false;
 
             do
             {
-                int rand = Random.Range(0, _availableUpgrades.Count);
-
-                if (!upgradeIndecies.Contains(rand))
+                int rand = Random.Range(0, totalWeight) + 1;
+                foreach (var upgrade in _availableUpgrades)
                 {
-                    upgradeIndecies.Add(rand);
+                    rand -= upgrade.Weight;
+
+                    if (rand <= 0)
+                    {
+                        tempUpgrade = upgrade;
+                        break;
+                    }
+                }
+
+                if (tempUpgrade != null && !upgrades.Contains(tempUpgrade))
+                {
+                    upgrades.Add(tempUpgrade);
                     upgradeFound = true;
                 }
 
             } while (upgradeFound == false);
         }
 
-        return upgradeIndecies.Select(i => _availableUpgrades.ElementAt(i)).ToList();
+        return upgrades.ToList();
     }
 
     public void SeedUpgrades()
