@@ -20,6 +20,7 @@ namespace Assets.Scripts.Building.Towers.Cannon.State
                     .SetSprite(_controller.TowerStatistics.Sprite)
                     .SetDamage(_controller.TowerStatistics.Damage)
                     .SetSpeed(_controller.TowerStatistics.ProjectileSpeed)
+                    .SetArea(_controller.TowerStatistics.Area)
                     .Build();
                 _controller.SetState(new CooldownState(_controller), building);
             }

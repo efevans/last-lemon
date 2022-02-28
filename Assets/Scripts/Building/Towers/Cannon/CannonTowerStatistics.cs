@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CannonTowerStatistics : TowerStatistics
 {
-    public int Area;
+    public float Area;
 
     public CannonTowerStatistics(CannonSettings settings) : base(settings)
     {

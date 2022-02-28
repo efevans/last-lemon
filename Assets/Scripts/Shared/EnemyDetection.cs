@@ -7,11 +7,9 @@ public class EnemyDetection : MonoBehaviour
 {
     public LayerMask EnemyLayer;
 
-    [SerializeField]
     public Transform TargetedEnemy { get; private set; }
     public List<Transform> EnemiesInRange { get; set; } = new List<Transform>();
 
-    [SerializeField]
     public bool EnemyDetected { get; private set; }
 
     [Range(0f, 2000f)]

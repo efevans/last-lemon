@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2163857103972394298}
   - component: {fileID: 2163857103972394296}
   - component: {fileID: 2163857103972394297}
+  - component: {fileID: 5038552304923658042}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: projectile
@@ -113,3 +114,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpriteRenderer: {fileID: 2163857103972394298}
+  EnemyDetection: {fileID: 5038552304923658042}
+--- !u!114 &5038552304923658042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2163857103972394245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98d710c7a04c38429e3f0a85bff1d80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  Radius: 0
+  GizmoIdleColor: {r: 0, g: 0, b: 0, a: 0.54509807}
+  GizmoDetectedColor: {r: 1, g: 0.019583862, b: 0, a: 0.5019608}
+  ShowGizmos: 1

@@ -6,15 +6,17 @@ using Zenject;
 public class Projectile : MonoBehaviour
 {
     public SpriteRenderer SpriteRenderer;
+    public EnemyDetection EnemyDetection;
+
     public Transform Target { get; set; }
     public Vector2 LastKnownTargetLocation { get; set; }
     public float Damage { get; set; }
     public float Speed { get; set; }
+    public float Area { get; set; }
 
     [Inject]
     public void Construct()
     {
-        
     }
 
     // Start is called before the first frame update
@@ -22,6 +24,12 @@ public class Projectile : MonoBehaviour
     {
         UpdateTargetPosition();
         FaceTarget(LastKnownTargetLocation);
+        EnemyDetection.Radius = Area;
+    }
+
+    public void UpdateArea(float area)
+    {
+        EnemyDetection.Radius = area;
     }
 
     private void Update()
@@ -55,12 +63,26 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("enemy"))
         {
-            if (collision.TryGetComponent<EnemyUnit>(out EnemyUnit enemy))
+            if (collision.TryGetComponent(out EnemyUnit enemy))
             {
                 enemy.TakeDamage(Damage);
             }
-            
-            Destroy(this.gameObject);
+
+            // Deal damage to enemies in range of Aoe, other than original target
+            foreach (var transformInAOE in this.EnemyDetection.EnemiesInRange)
+            {
+                if (transformInAOE.TryGetComponent(out EnemyUnit enemyInAOE))
+                {
+                    if (enemy == transformInAOE)
+                    {
+                        continue;
+                    }
+
+                    enemyInAOE.TakeDamage(Damage);
+                }
+            }
+
+            Destroy(gameObject);
         }
     }
 

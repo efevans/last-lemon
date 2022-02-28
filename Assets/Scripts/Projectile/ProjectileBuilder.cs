@@ -45,6 +45,12 @@ public class ProjectileBuilder
         return this;
     }
 
+    public ProjectileBuilder SetArea(float area)
+    {
+        _projectile.Area = area;
+        return this;
+    }
+
     public Projectile Build()
     {
         var finishedProjectile = _projectile;
