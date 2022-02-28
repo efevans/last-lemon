@@ -16,13 +16,13 @@ namespace Assets.Scripts.Building.Towers.Axe.State
 
             foreach (var enemy in building.EnemyDetection.EnemiesInRange)
             {
-                building.ProjectileFactory.Create(
-                    building.transform.position,
-                    enemy,
-                    _controller.TowerStatistics.Sprite,
-                    _controller.TowerStatistics.Damage,
-                    _controller.TowerStatistics.ProjectileSpeed);
-                _controller.SetState(new CooldownState(_controller), building);
+                building.ProjectileBuilderFactory.Create()
+                    .SetPosition(building.transform.position)
+                    .SetTarget(enemy)
+                    .SetSprite(_controller.TowerStatistics.Sprite)
+                    .SetDamage(_controller.TowerStatistics.Damage)
+                    .SetSpeed(_controller.TowerStatistics.ProjectileSpeed)
+                    .Build();
 
                 targets++;
                 if (targets >= _controller.TowerStatistics.TargetCount)
@@ -30,6 +30,7 @@ namespace Assets.Scripts.Building.Towers.Axe.State
                     break;
                 }
             }
+            _controller.SetState(new CooldownState(_controller), building);
         }
     }
 }

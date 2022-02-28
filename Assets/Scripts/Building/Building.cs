@@ -7,7 +7,7 @@ namespace Assets.Scripts.Building
 {
     public class Building : MonoBehaviour
     {
-        public Projectile.Factory ProjectileFactory { get; private set; }
+        public ProjectileBuilder.Factory ProjectileBuilderFactory { get; private set; }
         public BuildableSpot.Factory BuildableSpotFactory { get; private set; }
 
         public EnemyDetection EnemyDetection;
@@ -21,12 +21,12 @@ namespace Assets.Scripts.Building
             Tower tower,
             Vector2 spawnLocation,
             BuildableSpot.Factory buildableFactory,
-            Projectile.Factory projectileFactory)
+            ProjectileBuilder.Factory projectileBuilderFactory)
         {
             _tower = tower;
             transform.position = spawnLocation;
             BuildableSpotFactory = buildableFactory;
-            ProjectileFactory = projectileFactory;
+            ProjectileBuilderFactory = projectileBuilderFactory;
         }
 
         // Start is called before the first frame update

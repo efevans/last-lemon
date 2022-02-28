@@ -5,32 +5,23 @@ using Zenject;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField]
-    private SpriteRenderer _spriteRenderer;
-    private Transform Target { get; set; }
-    private Vector2 LastKnownTargetLocation { get; set; }
-
-    private float Damage { get; set; }
-    private float Speed { get; set; }
-    private Sprite Sprite { get; set; }
+    public SpriteRenderer SpriteRenderer;
+    public Transform Target { get; set; }
+    public Vector2 LastKnownTargetLocation { get; set; }
+    public float Damage { get; set; }
+    public float Speed { get; set; }
 
     [Inject]
-    public void Construct(Vector2 spawnLocation, Transform target, Sprite sprite, float damage, float speed)
+    public void Construct()
     {
-        transform.position = spawnLocation;
-        Target = target;
-        LastKnownTargetLocation = Target.position;
-        Damage = damage;
-        Speed = speed;
-        Sprite = sprite;
-        Debug.Log($"Projectile created with damage {damage}");
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        UpdateTargetPosition();
         FaceTarget(LastKnownTargetLocation);
-        _spriteRenderer.sprite = Sprite;
     }
 
     private void Update()
@@ -79,12 +70,12 @@ public class Projectile : MonoBehaviour
         targ.z = 0f;
 
         Vector3 objectPos = transform.position;
-        targ.x = targ.x - objectPos.x;
-        targ.y = targ.y - objectPos.y;
+        targ.x -= objectPos.x;
+        targ.y -= objectPos.y;
 
         float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
-    public class Factory : PlaceholderFactory<Vector2, Transform, Sprite, float, float, Projectile> { }
+    public class Factory : PlaceholderFactory<Projectile> { }
 }
