@@ -15,18 +15,20 @@ namespace Assets.Scripts.Level
         public readonly EnemySpawner Spawner;
         public readonly OverlayInstructions OverlayInstructions;
         public readonly TowersManager TowersManager;
+        public readonly UpgradesManager UpgradesManager;
         public readonly GoldManager GoldManager;
 
         private LevelState _state;
 
         public LevelController(Exit exit, EnemySpawner spawner, OverlayInstructions overlayInstructions,
-            TowersManager towersManager, GoldManager goldManager)
+            TowersManager towersManager, GoldManager goldManager, UpgradesManager upgradesManager)
         {
             Exit = exit;
             Spawner = spawner;
             OverlayInstructions = overlayInstructions;
             TowersManager = towersManager;
             GoldManager = goldManager;
+            UpgradesManager = upgradesManager;
         }
 
         public void Initialize()

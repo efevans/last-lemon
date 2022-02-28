@@ -19,6 +19,11 @@ public class UpgradesManager : IInitializable
 
     public void Initialize()
     {
+        SetDefaultState();
+    }
+
+    public void SetDefaultState()
+    {
         _availableUpgrades = new List<Upgrade>();
         _acquiredUpgrades = new List<Upgrade>();
         SeedUpgrades();
@@ -70,7 +75,26 @@ public class UpgradesManager : IInitializable
     {
         foreach (var upgrade in _upgradeDatabase.Upgrades)
         {
+            if (upgrade.StartingStatus == Upgrade.StartingStatusE.Available)
+            {
+                _availableUpgrades.Add(upgrade);
+            }
+        }
+    }
+
+    public void MakeUpgradeAvailable(Upgrade upgrade)
+    {
+        if (!_availableUpgrades.Contains(upgrade))
+        {
             _availableUpgrades.Add(upgrade);
+        }
+    }
+
+    public void MakeUpgradeUnavailable(Upgrade upgrade)
+    {
+        if (_availableUpgrades.Contains(upgrade))
+        {
+            _availableUpgrades.Remove(upgrade);
         }
     }
 

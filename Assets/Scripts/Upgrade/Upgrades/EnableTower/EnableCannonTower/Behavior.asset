@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 145efde4c7df55f4e96986f1893d620f, type: 3}
   m_Name: Behavior
   m_EditorClassIdentifier: 
-  _tower: {fileID: 11400000, guid: 89ca6a90fe5baa2468d4814c1dfe3948, type: 2}
+  _tower: {fileID: 11400000, guid: 66e053f7633d80a4897c72881ed4a5c6, type: 2}

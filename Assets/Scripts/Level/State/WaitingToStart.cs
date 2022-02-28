@@ -18,6 +18,7 @@ namespace Assets.Scripts.Level.State
                 _controller.Spawner.StartRound();
                 _controller.OverlayInstructions.Hide();
                 _controller.TowersManager.SetDefaultState();
+                _controller.UpgradesManager.SetDefaultState();
                 _controller.GoldManager.ResetToStartingGold();
                 _controller.Exit.ResetExit();
 

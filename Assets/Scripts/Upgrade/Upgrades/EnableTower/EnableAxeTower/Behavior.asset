@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 145efde4c7df55f4e96986f1893d620f, type: 3}
+  m_Name: Behavior
+  m_EditorClassIdentifier: 
+  _tower: {fileID: 11400000, guid: 89ca6a90fe5baa2468d4814c1dfe3948, type: 2}
+  MainTowerUnlockUpgrade: {fileID: 0}
+  SecondaryTowerUpgrades:
+  - {fileID: 11400000, guid: e69606e483e593448a447b7621a45797, type: 2}

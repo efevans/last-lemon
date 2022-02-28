@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6113484e90a394d4a8e90ac95b51e841, type: 3}
-  m_Name: IncreaseDamageTenth
+  m_Script: {fileID: 11500000, guid: 108a45b6bc27d8c47990b0acadc6b743, type: 3}
+  m_Name: Cannon Controller
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 05710c7e59541724891cbf6bbae00ca9, type: 3}
-  Behavior: {fileID: 11400000, guid: ff1f0085068b4144d9baca16efe61070, type: 2}
-  Weight: 3
+  Settings: {fileID: 11400000, guid: 6d75d2c026580d648a356a74136de607, type: 2}

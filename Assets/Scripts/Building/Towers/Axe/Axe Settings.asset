@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6113484e90a394d4a8e90ac95b51e841, type: 3}
-  m_Name: IncreaseDamageTenth
+  m_Script: {fileID: 11500000, guid: e2741633442bc654cb7c7fd5e3eab576, type: 3}
+  m_Name: Axe Settings
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 05710c7e59541724891cbf6bbae00ca9, type: 3}
-  Behavior: {fileID: 11400000, guid: ff1f0085068b4144d9baca16efe61070, type: 2}
-  Weight: 3
+  Cooldown: 3
+  Damage: 3.75
+  Range: 700
+  ProjectileSpeed: 1000
+  Sprite: {fileID: 21300000, guid: ca6dfc12f481b8b45b40a6e0cff7fc16, type: 3}
+  TargetCount: 3

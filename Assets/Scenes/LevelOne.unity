@@ -4127,6 +4127,7 @@ MonoBehaviour:
   Exit: {fileID: 363420873}
   OverlayInstructions: {fileID: 1796145880}
   AddAxeTowerBehavior: {fileID: 11400000, guid: de1f79149dd06bc459a4b09ef6c46f4a, type: 2}
+  AddCannonTowerBehavior: {fileID: 11400000, guid: 3b31517c4dffa2740b58be8578390c2b, type: 2}
   AddHalfDamageBehavior: {fileID: 11400000, guid: a50a4d48c655485409c11c7f1edc7b36, type: 2}
   AddOneDamageBehavior: {fileID: 11400000, guid: 49c4de584b0df184ab39013a0927e9ac, type: 2}
   AddTwoDamageBehavior: {fileID: 11400000, guid: 519511a0e65206f45a52933cdc80fa4f, type: 2}
@@ -4134,6 +4135,7 @@ MonoBehaviour:
   IncreaseDamageByTenth: {fileID: 11400000, guid: ff1f0085068b4144d9baca16efe61070, type: 2}
   IncreaseAttackSpeedTen: {fileID: 11400000, guid: f397fa64b78d6824e879c807a7fe758f, type: 2}
   IncreaseAttackSpeedFifteen: {fileID: 11400000, guid: a9e7680a218a01f4dad6f7f7e3a0f60c, type: 2}
+  IncreaseAxeTargetsByOne: {fileID: 11400000, guid: 25cd8de7db988bc429bf8ad8501e057c, type: 2}
 --- !u!114 &1769014857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4900,6 +4902,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2361894747636677676, guid: f83a2764368851c488bc8cbdbb11d819, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2361894748343135584, guid: f83a2764368851c488bc8cbdbb11d819, type: 3}
       propertyPath: m_Camera
       value: 

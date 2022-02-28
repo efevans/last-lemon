@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts.Building.Towers.Axe.State
+namespace Assets.Scripts.Building.Towers.Cannon.State
 {
-    public class CooldownState : AxeState
+    public class CooldownState : CannonState
     {
-        public CooldownState(AxeTowerStateController controller) : base(controller)
+        public CooldownState(CannonTowerStateController controller) : base(controller)
         {
         }
 

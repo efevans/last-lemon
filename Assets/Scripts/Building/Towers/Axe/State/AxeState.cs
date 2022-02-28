@@ -6,9 +6,9 @@ namespace Assets.Scripts.Building.Towers.Axe.State
 {
     public abstract class AxeState : ITowerState
     {
-        protected AxeStateController _controller;
+        protected AxeTowerStateController _controller;
 
-        public AxeState(AxeStateController controller)
+        public AxeState(AxeTowerStateController controller)
         {
             _controller = controller;
         }

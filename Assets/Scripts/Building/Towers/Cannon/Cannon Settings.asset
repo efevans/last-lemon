@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efce8704b80d9c841ace0e6eb0eb9a4c, type: 3}
-  m_Name: Base Settings
+  m_Script: {fileID: 11500000, guid: 2331a30d4a66d2d4191248d5cb841518, type: 3}
+  m_Name: Cannon Settings
   m_EditorClassIdentifier: 
-  Cooldown: 3
-  Damage: 3.75
-  Range: 700
-  ProjectileSpeed: 1000
-  Sprite: {fileID: 21300000, guid: ca6dfc12f481b8b45b40a6e0cff7fc16, type: 3}
+  Cooldown: 7
+  Damage: 10
+  Range: 1300
+  ProjectileSpeed: 700
+  Sprite: {fileID: 21300000, guid: ae7f694ff99e1224599d3e27beb9e3a5, type: 3}
+  Area: 400

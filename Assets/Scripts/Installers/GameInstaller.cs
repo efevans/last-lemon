@@ -25,6 +25,7 @@ public class GameInstaller : MonoInstaller
     public OverlayInstructions OverlayInstructions;
 
     public EnableTowerBehavior AddAxeTowerBehavior;
+    public EnableTowerBehavior AddCannonTowerBehavior;
     public AddFlatDamageBehavior AddHalfDamageBehavior;
     public AddFlatDamageBehavior AddOneDamageBehavior;
     public AddFlatDamageBehavior AddTwoDamageBehavior;
@@ -32,6 +33,7 @@ public class GameInstaller : MonoInstaller
     public MultipleDamageBehavior IncreaseDamageByTenth;
     public IncreaseAttackSpeedBehavior IncreaseAttackSpeedTen;
     public IncreaseAttackSpeedBehavior IncreaseAttackSpeedFifteen;
+    public IncreaseAxeTargetsBehavior IncreaseAxeTargetsByOne;
 
     public override void InstallBindings()
     {
@@ -107,6 +109,7 @@ public class GameInstaller : MonoInstaller
             .AsSingle();
 
         Container.QueueForInject(AddAxeTowerBehavior);
+        Container.QueueForInject(AddCannonTowerBehavior);
         Container.QueueForInject(AddHalfDamageBehavior);
         Container.QueueForInject(AddOneDamageBehavior);
         Container.QueueForInject(AddTwoDamageBehavior);
@@ -114,6 +117,7 @@ public class GameInstaller : MonoInstaller
         Container.QueueForInject(ReduceArrowTowerCostByOneBehavior);
         Container.QueueForInject(IncreaseAttackSpeedTen);
         Container.QueueForInject(IncreaseAttackSpeedFifteen);
+        Container.QueueForInject(IncreaseAxeTargetsByOne);
 
         InstallSignals();
     }
