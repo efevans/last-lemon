@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8acfe1dfc5701f4fadd4dae8e735db0, type: 3}
   m_Name: Sneaker
   m_EditorClassIdentifier: 
-  Health: 15
+  Health: 13
   Speed: 450
   Sprite: {fileID: 21300000, guid: 2b14a86cdb60c284ea4fcbee1ded0351, type: 3}
