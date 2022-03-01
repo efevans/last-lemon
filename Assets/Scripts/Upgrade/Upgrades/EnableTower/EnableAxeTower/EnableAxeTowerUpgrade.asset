@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: ca6dfc12f481b8b45b40a6e0cff7fc16, type: 3}
   Behavior: {fileID: 11400000, guid: de1f79149dd06bc459a4b09ef6c46f4a, type: 2}
-  Weight: 10
+  Weight: 1
+  StartingStatus: 0
