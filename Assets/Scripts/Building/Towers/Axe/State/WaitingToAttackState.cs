@@ -30,6 +30,12 @@ namespace Assets.Scripts.Building.Towers.Axe.State
                     break;
                 }
             }
+
+            if (targets > 0)
+            {
+                building.AudioSource.PlayOneShot(_controller.TowerStatistics.OnShoot);
+            }
+
             _controller.SetState(new CooldownState(_controller), building);
         }
     }

@@ -10,4 +10,5 @@ public class TowerBaseSettings : ScriptableObject
     public float Range;
     public float ProjectileSpeed;
     public Sprite Sprite;
+    public AudioClip OnShoot;
 }

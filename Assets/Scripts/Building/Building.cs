@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,9 @@ namespace Assets.Scripts.Building
         public BuildableSpot.Factory BuildableSpotFactory { get; private set; }
 
         public EnemyDetection EnemyDetection;
+        public AudioSource AudioSource;
+
+        private MySettings _settings;
 
         [HideInInspector]
         public TowerStateController TowerStateController;
@@ -21,17 +25,20 @@ namespace Assets.Scripts.Building
             Tower tower,
             Vector2 spawnLocation,
             BuildableSpot.Factory buildableFactory,
-            ProjectileBuilder.Factory projectileBuilderFactory)
+            ProjectileBuilder.Factory projectileBuilderFactory,
+            MySettings mySettings)
         {
             _tower = tower;
             transform.position = spawnLocation;
             BuildableSpotFactory = buildableFactory;
             ProjectileBuilderFactory = projectileBuilderFactory;
+            _settings = mySettings;
         }
 
         // Start is called before the first frame update
         void Awake()
         {
+            AudioSource.PlayOneShot(_settings.OnBuildSE, _settings.Volume);
             _tower.TowerController.Setup(this);
         }
 
@@ -58,5 +65,13 @@ namespace Assets.Scripts.Building
         }
 
         public class Factory : PlaceholderFactory<Tower, Vector2, Building> { }
+
+        [Serializable]
+        public class MySettings
+        {
+            public AudioClip OnBuildSE;
+            [Range(0, 1)]
+            public float Volume;
+        }
     }
 }

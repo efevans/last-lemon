@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
 {
     public SpriteRenderer SpriteRenderer;
     public EnemyDetection EnemyDetection;
+    private Explosion.Factory _explosionFactory;
 
     public Transform Target { get; set; }
     public Vector2 LastKnownTargetLocation { get; set; }
@@ -15,8 +16,9 @@ public class Projectile : MonoBehaviour
     public float Area { get; set; }
 
     [Inject]
-    public void Construct()
+    public void Construct(Explosion.Factory factory)
     {
+        _explosionFactory = factory;
     }
 
     // Start is called before the first frame update
@@ -69,17 +71,23 @@ public class Projectile : MonoBehaviour
             }
 
             // Deal damage to enemies in range of Aoe, other than original target
-            foreach (var transformInAOE in this.EnemyDetection.EnemiesInRange)
+            if (Area > 0)
             {
-                if (transformInAOE.TryGetComponent(out EnemyUnit enemyInAOE))
+                foreach (var transformInAOE in this.EnemyDetection.EnemiesInRange)
                 {
-                    if (enemy == transformInAOE)
+                    if (transformInAOE.TryGetComponent(out EnemyUnit enemyInAOE))
                     {
-                        continue;
-                    }
+                        if (enemy == transformInAOE)
+                        {
+                            continue;
+                        }
 
-                    enemyInAOE.TakeDamage(Damage);
+                        enemyInAOE.TakeDamage(Damage);
+                    }
                 }
+
+                Debug.Log("creating explosion");
+                _explosionFactory.Create(transform.position);
             }
 
             Destroy(gameObject);

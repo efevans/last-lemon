@@ -9,6 +9,7 @@ public class TowerStatistics
     public float Range;
     public float ProjectileSpeed;
     public Sprite Sprite;
+    public AudioClip OnShoot;
 
     public TowerStatistics(TowerBaseSettings settings)
     {
@@ -17,5 +18,6 @@ public class TowerStatistics
         Range = settings.Range;
         ProjectileSpeed = settings.ProjectileSpeed;
         Sprite = settings.Sprite;
+        OnShoot = settings.OnShoot;
     }
 }

@@ -14,6 +14,8 @@ namespace Assets.Scripts.Building.Towers.Cannon.State
         {
             if (building.EnemyDetection.TargetedEnemy != null)
             {
+                building.AudioSource.PlayOneShot(_controller.TowerStatistics.OnShoot);
+
                 building.ProjectileBuilderFactory.Create()
                     .SetPosition(building.transform.position)
                     .SetTarget(building.EnemyDetection.TargetedEnemy)

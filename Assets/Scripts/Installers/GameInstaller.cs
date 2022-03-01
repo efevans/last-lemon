@@ -13,6 +13,7 @@ public class GameInstaller : MonoInstaller
     public GameObject BuildableChoicePrefab;
     public GameObject EnemyPrefab;
     public GameObject Waypoint;
+    public GameObject ExplosionPrefab;
 
     public AudioSource AudioSource;
 
@@ -64,6 +65,9 @@ public class GameInstaller : MonoInstaller
 
         Container.BindInterfacesAndSelfTo<UpgradeDatabase>()
             .FromInstance(UpgradeDatabase);
+
+        Container.BindFactory<Vector2, Explosion, Explosion.Factory>()
+            .FromComponentInNewPrefab(ExplosionPrefab);
 
         Container.BindFactory<Projectile, Projectile.Factory>()
             .FromComponentInNewPrefab(ProjectilePrefab)

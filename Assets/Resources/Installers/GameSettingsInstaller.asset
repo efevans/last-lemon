@@ -33,3 +33,6 @@ MonoBehaviour:
   AudioManagerSettings:
     BGM: {fileID: 8300000, guid: 5339addc202694c4b92b721de724b84c, type: 3}
     Volume: 0.033
+  BuildingSettings:
+    OnBuildSE: {fileID: 8300000, guid: 63ef9244341c385499c790db8f60d4b2, type: 3}
+    Volume: 0.756

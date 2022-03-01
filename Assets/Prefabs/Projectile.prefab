@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpriteRenderer: {fileID: 2163857103972394298}
   EnemyDetection: {fileID: 5038552304923658042}
+  AreaParticleExplosion: {fileID: 0}
 --- !u!114 &5038552304923658042
 MonoBehaviour:
   m_ObjectHideFlags: 0
