@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8acfe1dfc5701f4fadd4dae8e735db0, type: 3}
   m_Name: Gigantiphant
   m_EditorClassIdentifier: 
-  Health: 300
+  Health: 500
   Speed: 100
   Sprite: {fileID: 21300000, guid: 2a5b60459fd8d254d914228b81c2b08e, type: 3}
