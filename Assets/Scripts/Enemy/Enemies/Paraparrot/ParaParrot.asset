@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8acfe1dfc5701f4fadd4dae8e735db0, type: 3}
-  m_Name: Weaklee
+  m_Name: ParaParrot
   m_EditorClassIdentifier: 
-  Health: 10
-  Speed: 300
-  Sprite: {fileID: 21300000, guid: 90c532d5c76327e4d9968f8c63277859, type: 3}
+  Health: 45
+  Speed: 400
+  Sprite: {fileID: 21300000, guid: 25e3b85a2a6901f4eadf3cfebdce0166, type: 3}
